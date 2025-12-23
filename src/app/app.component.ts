@@ -4,10 +4,12 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { SkillsShowcaseComponent } from './components/skills-showcase/skills-showcase.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 
 @Component({
     selector: 'app-root',
@@ -16,12 +18,14 @@ import { ContactComponent } from './components/contact/contact.component';
         CommonModule,
         NavComponent,
         HeroComponent,
+        SkillsShowcaseComponent,
         AboutComponent,
         SkillsComponent,
         ExperienceComponent,
         ProjectsComponent,
         ResumeComponent,
-        ContactComponent
+        ContactComponent,
+        BackToTopComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'

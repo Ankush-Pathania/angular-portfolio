@@ -1,0 +1,50 @@
+<section class="skills-showcase">
+    <div class="showcase-container">
+        <div class="section-header">
+            <h2 class="gradient-text">Tech Stack</h2>
+            <p class="section-subtitle">Technologies & Tools I Master</p>
+        </div>
+
+        <div class="scroll-wrapper">
+            <!-- Left fade gradient -->
+            <div class="fade-gradient fade-left"></div>
+
+            <!-- Scrolling content - duplicated for seamless loop -->
+            <div class="scroll-content">
+                <div class="skill-strip">
+                    <div *ngFor="let skill of allSkills" class="skill-badge glass">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <span class="skill-name">{{ skill.name }}</span>
+                        <div class="skill-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for seamless loop -->
+                <div class="skill-strip" aria-hidden="true">
+                    <div *ngFor="let skill of allSkills" class="skill-badge glass">
+                        <div class="skill-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <span class="skill-name">{{ skill.name }}</span>
+                        <div class="skill-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right fade gradient -->
+            <div class="fade-gradient fade-right"></div>
+        </div>
+    </div>
+</section>

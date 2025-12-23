@@ -187,13 +187,13 @@ a {
 // ========================================
 
 ::selection {
-    background: var(--color-accent-primary);
-    color: white;
+    background: rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
 }
 
 ::-moz-selection {
-    background: var(--color-accent-primary);
-    color: white;
+    background: rgba(6, 182, 212, 0.3);
+    color: var(--color-text-primary);
 }
 
 // ========================================

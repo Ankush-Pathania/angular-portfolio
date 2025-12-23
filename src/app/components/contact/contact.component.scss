@@ -150,6 +150,20 @@
     animation: fadeInUp 0.3s ease-out;
 }
 
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--border-radius-md);
+    color: #ef4444;
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-md);
+    animation: fadeInUp 0.3s ease-out;
+}
+
 @media (max-width: 968px) {
     .contact-content {
         grid-template-columns: 1fr;
