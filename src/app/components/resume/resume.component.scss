@@ -1,0 +1,99 @@
+.resume {
+    background: var(--color-bg-secondary);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.education-card {
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: all var(--transition-base);
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: var(--color-accent-primary);
+    }
+}
+
+.education-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: var(--border-radius-md);
+
+    svg {
+        color: white;
+    }
+}
+
+.education-card {
+    h3 {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-primary);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    h4 {
+        font-size: var(--font-size-base);
+        color: var(--color-accent-primary);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .period {
+        display: inline-block;
+        font-size: var(--font-size-sm);
+        color: var(--color-text-tertiary);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .description {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
+        color: var(--color-text-secondary);
+    }
+}
+
+.download-section {
+    margin-top: var(--spacing-xl);
+}
+
+.download-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    position: relative;
+}
+
+.download-content {
+    h3 {
+        font-size: var(--font-size-xl);
+        color: var(--color-text-primary);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    p {
+        font-size: var(--font-size-base);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-lg);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}

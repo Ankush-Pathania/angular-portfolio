@@ -1,0 +1,174 @@
+import { Injectable, signal } from '@angular/core';
+import { Profile, Skill, Experience, Project, Education, SocialLink } from '../models/portfolio.model';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class PortfolioDataService {
+    // Profile Information
+    profile = signal<Profile>({
+        name: 'Ankush Pathania',
+        role: 'Web Designer & Frontend Developer',
+        tagline: 'Crafting exceptional digital experiences with modern web technologies',
+        email: 'apathania811@gmail.com',
+        phone: '6286603909',
+        location: 'TDI Green Enclave, Mohali, Punjab',
+        summary: 'Experienced Web Designer and Frontend Developer with 3+ years of expertise in creating responsive, user-friendly websites and applications. Skilled in React, Angular, HTML, CSS, SCSS, JavaScript, jQuery, and modern development tools. Proven track record of delivering 50+ successful projects with 100% client satisfaction. Strong communication skills and experience collaborating with cross-functional teams across different time zones.'
+    });
+
+    // Skills organized by category
+    skills = signal<Skill[]>([
+        // Frontend Development
+        { name: 'HTML', level: 95, category: 'frontend' },
+        { name: 'CSS', level: 90, category: 'frontend' },
+        { name: 'SCSS', level: 88, category: 'frontend' },
+        { name: 'JavaScript', level: 85, category: 'frontend' },
+        { name: 'jQuery', level: 80, category: 'frontend' },
+        { name: 'React', level: 85, category: 'frontend' },
+        { name: 'Angular', level: 80, category: 'frontend' },
+
+        // Tools & Technologies
+        { name: 'Bootstrap', level: 88, category: 'tools' },
+        { name: 'Figma', level: 85, category: 'tools' },
+        { name: 'GitHub', level: 85, category: 'tools' },
+        { name: 'GIMP', level: 75, category: 'tools' },
+
+        // Professional Skills
+        { name: 'Responsive Design', level: 95, category: 'professional' },
+        { name: 'UI/UX Design', level: 90, category: 'professional' },
+        { name: 'Performance Optimization', level: 85, category: 'professional' },
+        { name: 'Cross-browser Compatibility', level: 90, category: 'professional' },
+        { name: 'Version Control (Git)', level: 85, category: 'professional' },
+        { name: 'Team Collaboration', level: 90, category: 'professional' },
+        { name: 'Project Management', level: 85, category: 'professional' },
+    ]);
+
+    // Professional Experience
+    experience = signal<Experience[]>([
+        {
+            company: 'Meander Software - WONDRFLY',
+            role: 'Web Designer',
+            period: '2023 - Present',
+            location: 'Remote',
+            description: 'Working on WONDRFLY platform (ap.wondrfly.com), a comprehensive kids\' activities platform connecting parents with local providers.',
+            technologies: ['React', 'Angular', 'HTML', 'CSS', 'SCSS', 'GitHub', 'Figma'],
+            achievements: [
+                'Improved website performance by 40% through optimization techniques',
+                'Redesigned interface components for enhanced user experience',
+                'Collaborated with international teams across different time zones',
+                'Implemented responsive designs using advanced media queries',
+                'Maintained code quality using GitHub workflows and SCSS best practices'
+            ]
+        },
+        {
+            company: 'Aarvik Infotech',
+            role: 'Web Designer',
+            period: '2022 - 2023',
+            location: 'Punjab, India',
+            description: 'Designed and developed websites for various clients with a focus on international client relationships and custom web solutions.',
+            technologies: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'Angular', 'GitHub', 'GIMP'],
+            achievements: [
+                'Delivered 20+ successful projects for international clients',
+                'Maintained 100% client satisfaction through clear communication',
+                'Reduced client development time by 30% through efficient workflows',
+                'Built responsive websites using advanced media query techniques',
+                'Managed client relationships across different cultural backgrounds'
+            ]
+        },
+        {
+            company: 'Tech Mahindra Institution',
+            role: 'Web Designer (Contract)',
+            period: '2021 - 2022',
+            location: 'India',
+            description: 'Entry-level position focused on web development fundamentals and industry best practices.',
+            technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+            achievements: [
+                'Successfully completed comprehensive web development training',
+                'Built first commercial website following industry standards',
+                'Learned responsive design principles and implementation'
+            ]
+        }
+    ]);
+
+    // Featured Projects
+    projects = signal<Project[]>([
+        {
+            title: 'WONDRFLY Platform',
+            description: 'Comprehensive kids\' activities platform connecting parents with local providers. Features advanced search, filtering, and booking capabilities.',
+            technologies: ['React', 'Angular', 'SCSS', 'GitHub', 'Responsive Design'],
+            features: [
+                'Advanced search and filtering system',
+                'Responsive design for all devices',
+                'Real-time booking capabilities',
+                'Collaborative development through GitHub'
+            ]
+        },
+        {
+            title: 'International Client Portfolio Websites',
+            description: 'Collection of 20+ responsive portfolio websites for various international clients in different industries including photography, design, and business services.',
+            technologies: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'JavaScript', 'Responsive Design'],
+            features: [
+                'Custom designs tailored to client needs',
+                'Fully responsive across all devices',
+                'SEO-optimized structure',
+                'Cross-browser compatibility'
+            ]
+        },
+        {
+            title: 'E-commerce Dashboard',
+            description: 'Modern admin dashboard for e-commerce management with real-time analytics, inventory tracking, and order management systems.',
+            technologies: ['Angular', 'Bootstrap', 'Chart.js', 'REST API'],
+            features: [
+                'Real-time analytics and reporting',
+                'Inventory management system',
+                'Order tracking and management',
+                'Responsive admin interface'
+            ]
+        }
+    ]);
+
+    // Education
+    education = signal<Education[]>([
+        {
+            degree: 'Bachelor of Arts',
+            institution: 'Guru Nanak Dev University, Amritsar',
+            period: '2017 - 2020',
+            description: 'Completed undergraduate studies with focus on liberal arts and general education. Developed strong analytical and communication skills essential for client interactions.'
+        },
+        {
+            degree: 'Computer Science Diploma',
+            institution: 'BSF IT Bangalore',
+            period: '2012 - 2015',
+            description: 'Specialized in computer science and information technology. Gained fundamental knowledge in programming, web development, and computer systems.'
+        }
+    ]);
+
+    // Social Links
+    socialLinks = signal<SocialLink[]>([
+        {
+            platform: 'GitHub',
+            url: 'https://github.com/ankushpathania',
+            icon: 'github'
+        },
+        {
+            platform: 'Email',
+            url: 'mailto:apathania811@gmail.com',
+            icon: 'email'
+        }
+    ]);
+
+    constructor() { }
+
+    // Getter methods for categorized skills
+    getFrontendSkills(): Skill[] {
+        return this.skills().filter(skill => skill.category === 'frontend');
+    }
+
+    getToolsSkills(): Skill[] {
+        return this.skills().filter(skill => skill.category === 'tools');
+    }
+
+    getProfessionalSkills(): Skill[] {
+        return this.skills().filter(skill => skill.category === 'professional');
+    }
+}

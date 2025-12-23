@@ -1,0 +1,44 @@
+<section id="projects" class="projects section">
+    <div class="container">
+        <div class="section-header scroll-animate" appScrollAnimation>
+            <h2 class="gradient-text">Featured Projects</h2>
+            <p class="section-subtitle">Showcasing my best work</p>
+        </div>
+
+        <div class="projects-grid">
+            <div *ngFor="let project of projects(); let i = index" class="project-card glass scroll-animate-scale"
+                [style.animation-delay]="(i * 0.15) + 's'" appScrollAnimation>
+                <div class="project-header">
+                    <div class="project-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>{{ project.title }}</h3>
+                </div>
+
+                <p class="project-description">{{ project.description }}</p>
+
+                <div class="project-technologies">
+                    <span *ngFor="let tech of project.technologies" class="tech-badge">
+                        {{ tech }}
+                    </span>
+                </div>
+
+                <div *ngIf="project.features" class="project-features">
+                    <h4>Key Features:</h4>
+                    <ul>
+                        <li *ngFor="let feature of project.features">{{ feature }}</li>
+                    </ul>
+                </div>
+
+                <div class="project-footer">
+                    <div class="project-glow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

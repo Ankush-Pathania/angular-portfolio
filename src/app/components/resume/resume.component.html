@@ -1,0 +1,43 @@
+<section id="resume" class="resume section">
+    <div class="container">
+        <div class="section-header scroll-animate" appScrollAnimation>
+            <h2 class="gradient-text">Education</h2>
+            <p class="section-subtitle">Academic background</p>
+        </div>
+
+        <div class="education-grid">
+            <div *ngFor="let edu of education()" class="education-card glass scroll-animate-scale" appScrollAnimation>
+                <div class="education-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                </div>
+
+                <h3>{{ edu.degree }}</h3>
+                <h4>{{ edu.institution }}</h4>
+                <span class="period">{{ edu.period }}</span>
+                <p class="description">{{ edu.description }}</p>
+            </div>
+        </div>
+
+        <div class="download-section scroll-animate" appScrollAnimation>
+            <div class="download-card glass gradient-border">
+                <div class="download-content">
+                    <h3>Download Full Resume</h3>
+                    <p>Get a complete overview of my experience, skills, and education</p>
+                    <button class="btn btn-primary" (click)="downloadResume()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+<section id="experience" class="experience section">
+    <div class="container">
+        <div class="section-header scroll-animate" appScrollAnimation>
+            <h2 class="gradient-text">Work Experience</h2>
+            <p class="section-subtitle">My professional journey</p>
+        </div>
+
+        <div class="timeline">
+            <div *ngFor="let exp of experience(); let i = index" class="timeline-item scroll-animate"
+                [class.scroll-animate-left]="i % 2 === 0" [class.scroll-animate-right]="i % 2 !== 0" appScrollAnimation>
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                </div>
+
+                <div class="timeline-content glass">
+                    <div class="experience-header">
+                        <div>
+                            <h3>{{ exp.role }}</h3>
+                            <h4>{{ exp.company }}</h4>
+                        </div>
+                        <div class="experience-meta">
+                            <span class="period">{{ exp.period }}</span>
+                            <span class="location">{{ exp.location }}</span>
+                        </div>
+                    </div>
+
+                    <p class="description">{{ exp.description }}</p>
+
+                    <div class="technologies">
+                        <span *ngFor="let tech of exp.technologies" class="tech-tag">
+                            {{ tech }}
+                        </span>
+                    </div>
+
+                    <div class="achievements">
+                        <h5>Key Achievements:</h5>
+                        <ul>
+                            <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

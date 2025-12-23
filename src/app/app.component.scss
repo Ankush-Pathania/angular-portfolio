@@ -1,0 +1,23 @@
+.main-content {
+    padding-top: 70px; // Account for fixed navbar
+}
+
+.footer {
+    background: var(--color-bg-secondary);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-content {
+    text-align: center;
+
+    p {
+        margin: var(--spacing-xs) 0;
+        color: var(--color-text-secondary);
+        font-size: var(--font-size-sm);
+    }
+
+    .footer-tagline {
+        font-weight: var(--font-weight-medium);
+    }
+}

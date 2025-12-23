@@ -1,0 +1,109 @@
+.about {
+    background: var(--color-bg-secondary);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+
+    h2 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .section-subtitle {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-secondary);
+    }
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.about-text {
+    .summary {
+        font-size: var(--font-size-lg);
+        line-height: var(--line-height-relaxed);
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+.highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.highlight-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+
+    .highlight-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gradient-primary);
+        border-radius: var(--border-radius-md);
+        color: white;
+    }
+
+    h4 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-xs);
+        color: var(--color-text-primary);
+    }
+
+    p {
+        font-size: var(--font-size-base);
+        color: var(--color-text-secondary);
+        margin: 0;
+    }
+}
+
+.about-visual {
+    .visual-card {
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-lg);
+    }
+}
+
+.code-snippet {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: var(--font-size-sm);
+    line-height: 1.8;
+
+    .code-line {
+        color: var(--color-text-secondary);
+
+        &.indent {
+            padding-left: var(--spacing-md);
+        }
+    }
+
+    .keyword {
+        color: var(--color-accent-primary);
+    }
+
+    .variable {
+        color: var(--color-accent-secondary);
+    }
+
+    .string {
+        color: #10b981;
+    }
+}
+
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
