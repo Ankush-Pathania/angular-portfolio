@@ -1,7 +1,7 @@
 .back-to-top {
     position: fixed;
-    bottom: var(--spacing-md);
-    right: var(--spacing-md);
+    bottom: 20px;
+    right: 20px;
     z-index: var(--z-sticky);
     width: 50px;
     height: 50px;
@@ -15,24 +15,24 @@
     justify-content: center;
     box-shadow: var(--shadow-lg);
     transition: all var(--transition-base);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100px);
+    opacity: 1;
+    visibility: visible;
+    // transform: translateY(100px);
 
-    &.visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
+    // &.visible {
+    //     opacity: 1;
+    //     visibility: visible;
+    //     transform: translateY(0);
+    // }
 
-    &:hover {
-        transform: translateY(-5px) scale(1.1);
-        box-shadow: var(--shadow-glow);
-    }
+    // &:hover {
+    //     transform: translateY(-5px) scale(1.1);
+    //     box-shadow: var(--shadow-glow);
+    // }
 
-    &:active {
-        transform: translateY(-2px) scale(1.05);
-    }
+    // &:active {
+    //     transform: translateY(-2px) scale(1.05);
+    // }
 
     svg {
         width: 24px;
@@ -44,8 +44,8 @@
 // Responsive
 @media (max-width: 768px) {
     .back-to-top {
-        bottom: var(--spacing-sm);
-        right: var(--spacing-sm);
+        bottom: 20px;
+        right: 20px;
         width: 45px;
         height: 45px;
 

@@ -1,0 +1,25 @@
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc"></stop>
+      <stop offset="100%" stop-color="#2563eb"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer A Shape -->
+  <path d="M80 10 L150 140 H120 L100 95 H60 L40 140 H10 Z" fill="url(#blueGrad)"></path>
+
+  <!-- Sword Blade -->
+  <rect x="74" y="28" width="12" height="70" rx="2" fill="#e0f2fe"></rect>
+
+  <!-- Sword Guard -->
+  <rect x="58" y="52" width="44" height="8" rx="3" fill="#bfdbfe"></rect>
+
+  <!-- Inner A Cuts -->
+  <path d="M80 28 L110 100 H92 L80 72 L68 100 H50 Z" fill="#1e3a8a" opacity="0.85"></path>
+
+  <!-- Text -->
+  <text x="80" y="155" text-anchor="middle" font-size="22" font-weight="700" fill="#bfdbfe" font-family="Inter, sans-serif">
+    ANKUSH
+  </text>
+</svg>

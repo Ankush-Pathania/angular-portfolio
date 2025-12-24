@@ -47,11 +47,11 @@ export class PortfolioDataService {
     experience = signal<Experience[]>([
         {
             company: 'Meander Software - WONDRFLY',
-            role: 'Web Designer',
+            role: 'Web Designer / UI Developer',
             period: '2023 - Present',
             location: 'Remote',
-            description: 'Working on WONDRFLY platform (ap.wondrfly.com), a comprehensive kids\' activities platform connecting parents with local providers.',
-            technologies: ['React', 'Angular', 'HTML', 'CSS', 'SCSS', 'GitHub', 'Figma'],
+            description: 'Working on WONDRFLY platform (www.wondrfly.com), a comprehensive kids\' activities platform connecting parents with local providers.',
+            technologies: ['Angular', 'HTML', 'CSS', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
             achievements: [
                 'Improved website performance by 40% through optimization techniques',
                 'Redesigned interface components for enhanced user experience',
@@ -77,11 +77,11 @@ export class PortfolioDataService {
         },
         {
             company: 'Tech Mahindra Institution',
-            role: 'Web Designer (Contract)',
+            role: 'Frontend Development (Contract)',
             period: '2021 - 2022',
             location: 'India',
             description: 'Entry-level position focused on web development fundamentals and industry best practices.',
-            technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+            technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'jQuery'],
             achievements: [
                 'Successfully completed comprehensive web development training',
                 'Built first commercial website following industry standards',
@@ -146,6 +146,11 @@ export class PortfolioDataService {
     // Social Links
     socialLinks = signal<SocialLink[]>([
         {
+            platform: 'LinkedIn',
+            url: 'https://www.linkedin.com/in/ankush-pathania',
+            icon: 'linkedin'
+        },
+        {
             platform: 'GitHub',
             url: 'https://github.com/ankushpathania',
             icon: 'github'
@@ -154,6 +159,11 @@ export class PortfolioDataService {
             platform: 'Email',
             url: 'mailto:apathania811@gmail.com',
             icon: 'email'
+        },
+        {
+            platform: 'Phone',
+            url: 'tel:+916286603909',
+            icon: 'phone'
         }
     ]);
 

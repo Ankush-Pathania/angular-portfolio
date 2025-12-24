@@ -14,8 +14,10 @@
           </div>
 
           <!-- Name -->
-          <h1 class="name gradient-text animate-fadeInUp stagger-1">
-            {{ profile().name }}
+          <h1 class="name gradient-text">
+            <span *ngFor="let char of nameChars; let i = index" class="char" [style.animation-delay]="(i * 0.1) + 's'">
+              {{ char === ' ' ? '\u00A0' : char }}
+            </span>
           </h1>
 
           <!-- Role -->
@@ -47,6 +49,11 @@
               </svg>
               Contact Me
             </button>
+          </div>
+
+          <!-- Social Links -->
+          <div class="hero-social animate-fadeInUp stagger-5">
+            <app-social-links></app-social-links>
           </div>
 
           <!-- Scroll Indicator -->

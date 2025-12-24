@@ -29,6 +29,8 @@
     font-weight: var(--font-weight-bold);
     font-family: var(--font-heading);
     text-decoration: none;
+    width: 60px;
+    height: 60px;
 
     .logo-icon {
         width: 40px;
@@ -108,15 +110,18 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--glass-bg);
+    background: var(--color-bg-secondary);
     backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
     max-height: 0;
     overflow: hidden;
     transition: max-height var(--transition-base);
 
     &.open {
-        max-height: 400px;
+        max-height: 500px;
+        background: var(--color-bg-secondary);
+        backdrop-filter: blur(20px);
     }
 }
 

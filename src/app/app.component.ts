@@ -10,6 +10,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
+import { SocialLinksComponent } from './components/shared/social-links/social-links.component';
 
 @Component({
     selector: 'app-root',
@@ -25,7 +26,8 @@ import { BackToTopComponent } from './components/back-to-top/back-to-top.compone
         ProjectsComponent,
         ResumeComponent,
         ContactComponent,
-        BackToTopComponent
+        BackToTopComponent,
+        SocialLinksComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'

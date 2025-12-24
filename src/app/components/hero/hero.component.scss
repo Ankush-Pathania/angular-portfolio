@@ -93,6 +93,81 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .char {
+        display: inline-block;
+        opacity: 0;
+        animation: charFlyIn 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+
+        // Alternate characters come from different directions
+        &:nth-child(4n+1) {
+            animation-name: charFlyInFromTop;
+        }
+
+        &:nth-child(4n+2) {
+            animation-name: charFlyInFromRight;
+        }
+
+        &:nth-child(4n+3) {
+            animation-name: charFlyInFromBottom;
+        }
+
+        &:nth-child(4n+4) {
+            animation-name: charFlyInFromLeft;
+        }
+    }
+}
+
+// Character animations from different directions
+@keyframes charFlyInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(-25deg) scale(0.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes charFlyInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100vw) rotate(25deg) scale(0.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes charFlyInFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(25deg) scale(0.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes charFlyInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100vw) rotate(-25deg) scale(0.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg) scale(1);
+    }
 }
 
 .role {
@@ -117,6 +192,14 @@
     margin-top: var(--spacing-md);
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.hero-social {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
 }
 
 .scroll-indicator {

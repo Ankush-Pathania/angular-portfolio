@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 
-<main class="main-content">
+<main class="main-content" style="overflow: hidden;">
     <app-hero></app-hero>
     <app-skills-showcase></app-skills-showcase>
     <app-about></app-about>
@@ -9,16 +9,28 @@
     <app-projects></app-projects>
     <app-resume></app-resume>
     <app-contact></app-contact>
+    <app-back-to-top></app-back-to-top>
+
 </main>
 
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <p>&copy; {{ currentYear }} Ankush Pathania. All rights reserved.</p>
-            <p class="footer-tagline">Built with <span class="gradient-text">Angular</span> & <span
-                    class="gradient-text">Three.js</span></p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3 class="gradient-text">Ankush Pathania</h3>
+                    <p class="footer-tagline">Web Designer & Frontend Developer</p>
+                </div>
+                <div class="footer-social">
+                    <p class="social-title">Connect with me</p>
+                    <app-social-links></app-social-links>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ currentYear }} Ankush Pathania. All rights reserved.</p>
+                <p class="footer-tech">Built with <span class="gradient-text">Angular</span> & <span
+                        class="gradient-text">Three.js</span></p>
+            </div>
         </div>
     </div>
 </footer>
-
-<app-back-to-top></app-back-to-top>
