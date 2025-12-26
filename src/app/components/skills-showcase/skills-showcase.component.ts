@@ -12,6 +12,8 @@ import { Skill } from '../../core/models/portfolio.model';
 })
 export class SkillsShowcaseComponent implements OnInit {
     allSkills: Skill[] = [];
+    firstRowSkills: Skill[] = [];
+    secondRowSkills: Skill[] = [];
 
     constructor(private portfolioData: PortfolioDataService) { }
 
@@ -22,5 +24,10 @@ export class SkillsShowcaseComponent implements OnInit {
             ...this.portfolioData.getToolsSkills(),
             ...this.portfolioData.getProfessionalSkills()
         ];
+
+        // Split skills into two rows
+        const half = Math.ceil(this.allSkills.length / 2);
+        this.firstRowSkills = this.allSkills.slice(0, half);
+        this.secondRowSkills = this.allSkills.slice(half);
     }
 }

@@ -43,7 +43,11 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
+
+    &:first-of-type {
+        margin-bottom: var(--spacing-sm);
+    }
 }
 
 .fade-gradient {
@@ -72,8 +76,15 @@
 .scroll-content {
     display: flex;
     width: fit-content;
-    animation: scroll 40s linear infinite;
     will-change: transform;
+
+    &.scroll-left {
+        animation: scrollLeft 40s linear infinite;
+    }
+
+    &.scroll-right {
+        animation: scrollRight 40s linear infinite;
+    }
 
     &:hover {
         animation-play-state: paused;
@@ -153,7 +164,19 @@
     pointer-events: none;
 }
 
-@keyframes scroll {
+// Scroll left to right animation
+@keyframes scrollLeft {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+// Scroll right to left animation
+@keyframes scrollRight {
     0% {
         transform: translate3d(0, 0, 0);
     }
@@ -197,19 +220,29 @@
     }
 
     .scroll-content {
-        animation-duration: 30s;
+        &.scroll-left {
+            animation-duration: 30s;
+        }
+
+        &.scroll-right {
+            animation-duration: 30s;
+        }
     }
 
     .scroll-wrapper {
         padding: 0;
-
-
     }
 }
 
 @media (max-width: 480px) {
     .scroll-content {
-        animation-duration: 25s;
+        &.scroll-left {
+            animation-duration: 25s;
+        }
+
+        &.scroll-right {
+            animation-duration: 25s;
+        }
     }
 
     .skill-strip {
