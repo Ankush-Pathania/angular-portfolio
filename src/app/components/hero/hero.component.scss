@@ -105,10 +105,13 @@
     font-weight: var(--font-weight-bold);
     margin: 0;
     line-height: var(--line-height-tight);
+    // Fallback color for browsers that don't support gradient text
+    color: var(--color-accent-primary);
     background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    // Remove filter on mobile to improve rendering
     filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
     display: inline-flex;
     flex-wrap: wrap;
@@ -122,6 +125,13 @@
         animation: charFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         will-change: transform, opacity;
         backface-visibility: hidden;
+    }
+
+    // Fallback for mobile Safari and browsers with gradient text issues
+    @supports not (-webkit-background-clip: text) {
+        -webkit-text-fill-color: initial;
+        background: none;
+        color: var(--color-accent-primary);
     }
 }
 
@@ -198,6 +208,9 @@
 
     .name {
         font-size: var(--font-size-2xl);
+        // Fix for mobile: use solid color instead of gradient
+        -webkit-text-fill-color: var(--color-accent-primary);
+        filter: none;
     }
 
     .role {
