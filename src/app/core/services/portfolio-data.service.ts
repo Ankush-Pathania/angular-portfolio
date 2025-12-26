@@ -10,7 +10,7 @@ export class PortfolioDataService {
         name: 'Ankush Pathania',
         role: 'Web Designer & Frontend Developer',
         tagline: 'Crafting exceptional digital experiences with modern web technologies',
-        email: 'apathania811@gmail.com',
+        email: 'apathania611@gmail.com',
         phone: '6286603909',
         location: 'TDI Green Enclave, Mohali, Punjab',
         summary: 'Experienced Web Designer and Frontend Developer with 3+ years of expertise in creating responsive, user-friendly websites and applications. Skilled in React, Angular, HTML, CSS, SCSS, JavaScript, jQuery, and modern development tools. Proven track record of delivering 50+ successful projects with 100% client satisfaction. Strong communication skills and experience collaborating with cross-functional teams across different time zones.'
@@ -24,8 +24,8 @@ export class PortfolioDataService {
         { name: 'SCSS', level: 88, category: 'frontend' },
         { name: 'JavaScript', level: 85, category: 'frontend' },
         { name: 'jQuery', level: 80, category: 'frontend' },
-        { name: 'React', level: 85, category: 'frontend' },
-        { name: 'Angular', level: 80, category: 'frontend' },
+        { name: 'React', level: 40, category: 'frontend' },
+        { name: 'Angular', level: 40, category: 'frontend' },
 
         // Tools & Technologies
         { name: 'Bootstrap', level: 88, category: 'tools' },
@@ -33,10 +33,29 @@ export class PortfolioDataService {
         { name: 'GitHub', level: 85, category: 'tools' },
         { name: 'GIMP', level: 75, category: 'tools' },
 
+        // Performance & SEO Tools
+        { name: 'PageSpeed Insights', level: 90, category: 'tools' },
+        { name: 'Lighthouse', level: 88, category: 'tools' },
+        { name: 'Google Analytics', level: 82, category: 'tools' },
+
+        // Coding Tools & IDEs
+        { name: 'VS Code', level: 95, category: 'tools' },
+        { name: 'Cursor', level: 85, category: 'tools' },
+        { name: 'Sublime Text', level: 80, category: 'tools' },
+        { name: 'Antigravity', level: 90, category: 'tools' },
+
+        // AI Tools & Search Engines
+        { name: 'ChatGPT', level: 90, category: 'tools' },
+        { name: 'DeepSeek', level: 85, category: 'tools' },
+        { name: 'Google Gemini', level: 88, category: 'tools' },
+        { name: 'Perplexity AI', level: 82, category: 'tools' },
+
         // Professional Skills
         { name: 'Responsive Design', level: 95, category: 'professional' },
         { name: 'UI/UX Design', level: 90, category: 'professional' },
         { name: 'Performance Optimization', level: 85, category: 'professional' },
+        { name: 'Speed Optimization', level: 88, category: 'professional' },
+        { name: 'SEO', level: 85, category: 'professional' },
         { name: 'Cross-browser Compatibility', level: 90, category: 'professional' },
         { name: 'Version Control (Git)', level: 85, category: 'professional' },
         { name: 'Team Collaboration', level: 90, category: 'professional' },
@@ -94,35 +113,100 @@ export class PortfolioDataService {
     projects = signal<Project[]>([
         {
             title: 'WONDRFLY Platform',
-            description: 'Comprehensive kids\' activities platform connecting parents with local providers. Features advanced search, filtering, and booking capabilities.',
-            technologies: ['React', 'Angular', 'SCSS', 'GitHub', 'Responsive Design'],
+            description: 'Comprehensive kids\' activities platform connecting parents with local providers. Features advanced search, filtering, and booking capabilities with a focus on user experience and performance.',
+            technologies: ['React', 'Angular', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
             features: [
                 'Advanced search and filtering system',
                 'Responsive design for all devices',
                 'Real-time booking capabilities',
+                'Performance optimized (40% improvement)',
                 'Collaborative development through GitHub'
+            ]
+        },
+        {
+            title: 'Meander Software - Corporate Website',
+            description: 'Professional corporate website for Meander Software, a leading app development company. Features modern design, service showcases, and client portfolio displays.',
+            technologies: ['Vue.js', 'HTML', 'CSS', 'JavaScript', 'Google Analytics'],
+            features: [
+                'Modern, professional UI/UX design',
+                'Interactive service demonstrations',
+                'Client portfolio showcase',
+                'Multi-page architecture with smooth navigation',
+                'SEO optimization and analytics integration'
+            ]
+        },
+        {
+            title: 'Food Ordering & Delivery Platform',
+            description: 'Full-featured food ordering and delivery application enabling customers to browse restaurants, place orders, and track deliveries in real-time.',
+            technologies: ['Angular', 'HTML', 'SCSS', 'Bootstrap', 'REST API'],
+            features: [
+                'Restaurant browsing and menu management',
+                'Real-time order tracking',
+                'Payment gateway integration',
+                'Responsive mobile-first design',
+                'Admin dashboard for restaurant management'
+            ]
+        },
+        {
+            title: 'Salon & Spa Booking System',
+            description: 'Comprehensive booking platform for salons and spas with appointment scheduling, service management, and client relationship features.',
+            technologies: ['HTML', 'CSS', 'SCSS', 'JavaScript', 'jQuery', 'Bootstrap'],
+            features: [
+                'Easy appointment scheduling interface',
+                'Service catalog management',
+                'Staff availability calendar',
+                'Client booking history',
+                'Email notifications and reminders'
+            ]
+        },
+        {
+            title: 'Healthcare Appointment Portal',
+            description: 'Doctor appointment booking system connecting patients with healthcare providers. Features include appointment scheduling, medical records, and telemedicine capabilities.',
+            technologies: ['Angular', 'Bootstrap', 'SCSS', 'TypeScript', 'REST API'],
+            features: [
+                'Doctor search and filtering by specialty',
+                'Online appointment booking',
+                'Patient medical records management',
+                'Video consultation integration',
+                'Prescription and report viewing'
+            ]
+        },
+        {
+            title: 'Business Analytics Dashboard',
+            description: 'Advanced analytics dashboard for business intelligence with data visualization, reporting tools, and performance metrics tracking.',
+            technologies: ['Angular', 'Bootstrap', 'Chart.js', 'D3.js', 'REST API'],
+            features: [
+                'Real-time data visualization',
+                'Custom report generation',
+                'Interactive charts and graphs',
+                'Performance metrics tracking',
+                'Export capabilities (PDF, Excel)',
+                'Responsive admin interface'
             ]
         },
         {
             title: 'International Client Portfolio Websites',
             description: 'Collection of 20+ responsive portfolio websites for various international clients in different industries including photography, design, and business services.',
-            technologies: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'JavaScript', 'Responsive Design'],
+            technologies: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'JavaScript', 'jQuery'],
             features: [
                 'Custom designs tailored to client needs',
                 'Fully responsive across all devices',
                 'SEO-optimized structure',
-                'Cross-browser compatibility'
+                'Cross-browser compatibility',
+                'Performance-optimized loading'
             ]
         },
         {
-            title: 'E-commerce Dashboard',
-            description: 'Modern admin dashboard for e-commerce management with real-time analytics, inventory tracking, and order management systems.',
-            technologies: ['Angular', 'Bootstrap', 'Chart.js', 'REST API'],
+            title: 'E-commerce Product Management',
+            description: 'Modern e-commerce platform with product catalog, shopping cart, checkout system, and comprehensive admin dashboard for inventory and order management.',
+            technologies: ['HTML', 'CSS', 'SCSS', 'Bootstrap', 'JavaScript', 'jQuery'],
             features: [
-                'Real-time analytics and reporting',
+                'Product catalog with advanced filtering',
+                'Shopping cart and checkout flow',
                 'Inventory management system',
-                'Order tracking and management',
-                'Responsive admin interface'
+                'Order tracking and fulfillment',
+                'Sales analytics and reporting',
+                'Mobile-responsive design'
             ]
         }
     ]);
@@ -152,12 +236,12 @@ export class PortfolioDataService {
         },
         {
             platform: 'GitHub',
-            url: 'https://github.com/ankushpathania',
+            url: 'https://github.com/Ankush-Pathania',
             icon: 'github'
         },
         {
             platform: 'Email',
-            url: 'mailto:apathania811@gmail.com',
+            url: 'mailto:apathania611@gmail.com',
             icon: 'email'
         },
         {

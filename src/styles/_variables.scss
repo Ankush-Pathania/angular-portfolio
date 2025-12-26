@@ -11,9 +11,10 @@
   --color-text-secondary: hsl(0, 0%, 70%);
   --color-text-tertiary: hsl(0, 0%, 50%);
 
-  --color-accent-primary: hsl(260, 80%, 65%);
-  --color-accent-secondary: hsl(200, 90%, 60%);
-  --color-accent-tertiary: hsl(280, 70%, 70%);
+  // Default to Blue theme (will be overridden by ThemeService)
+  --color-accent-primary: hsl(217, 91%, 60%);
+  --color-accent-secondary: hsl(199, 89%, 48%);
+  --color-accent-tertiary: hsl(207, 90%, 54%);
 
   // ========================================
   // GRADIENTS
@@ -21,7 +22,7 @@
   --gradient-primary: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
   --gradient-secondary: linear-gradient(135deg, var(--color-accent-tertiary), var(--color-accent-primary));
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  --gradient-text: linear-gradient(135deg, #a78bfa, #06b6d4);
+  --gradient-text: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
 
   // ========================================
   // GLASSMORPHISM

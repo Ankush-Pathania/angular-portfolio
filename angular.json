@@ -47,12 +47,26 @@
                                     "maximumError": "10kb"
                                 }
                             ],
-                            "outputHashing": "all"
+                            "outputHashing": "all",
+                            "optimization": true,
+                            "buildOptimizer": true,
+                            "vendorChunk": true,
+                            "commonChunk": true
                         },
                         "development": {
-                            "optimization": false,
+                            "optimization": {
+                                "scripts": true,
+                                "styles": {
+                                    "minify": false,
+                                    "inlineCritical": false
+                                },
+                                "fonts": true
+                            },
                             "extractLicenses": false,
-                            "sourceMap": true
+                            "sourceMap": true,
+                            "vendorChunk": true,
+                            "commonChunk": true,
+                            "buildOptimizer": false
                         }
                     },
                     "defaultConfiguration": "production"
@@ -73,6 +87,6 @@
         }
     },
     "cli": {
-      "analytics": false
+        "analytics": false
     }
 }

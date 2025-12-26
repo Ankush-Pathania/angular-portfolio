@@ -1,0 +1,62 @@
+// ========================================
+// PERFORMANCE OPTIMIZATIONS
+// ========================================
+
+// Use CSS containment for better rendering performance
+.hero,
+.about,
+.skills,
+.skills-showcase,
+.experience,
+.projects,
+.contact {
+    contain: layout style;
+}
+
+// Optimize off-screen sections with content-visibility
+.section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+}
+
+// GPU acceleration for animated elements
+.card:hover,
+.btn:hover {
+    will-change: transform;
+}
+
+// Remove will-change after animation completes
+.animate-fadeInUp,
+.animate-slideInLeft,
+.animate-slideInRight {
+    &.animation-complete {
+        will-change: auto;
+    }
+}
+
+// Optimize image rendering
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+// Force hardware acceleration for critical elements
+.three-container,
+.scroll-content,
+.skill-badge {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+// Reduce motion for accessibility and performance
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

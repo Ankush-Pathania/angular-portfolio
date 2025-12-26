@@ -152,6 +152,16 @@
     }
 }
 
+@media (max-width: 640px) {
+    .timeline-content {
+
+        padding: var(--spacing-sm);
+
+    }
+
+
+}
+
 @media (max-width: 968px) {
     .timeline::before {
         left: 20px;

@@ -51,6 +51,7 @@
     .wave {
         display: inline-block;
         animation: wave 2s ease-in-out infinite;
+        will-change: transform;
     }
 }
 
@@ -58,28 +59,28 @@
 
     0%,
     100% {
-        transform: rotate(0deg);
+        transform: rotate3d(0, 0, 1, 0deg);
     }
 
     10%,
     30% {
-        transform: rotate(14deg);
+        transform: rotate3d(0, 0, 1, 14deg);
     }
 
     20% {
-        transform: rotate(-8deg);
+        transform: rotate3d(0, 0, 1, -8deg);
     }
 
     40% {
-        transform: rotate(-4deg);
+        transform: rotate3d(0, 0, 1, -4deg);
     }
 
     50% {
-        transform: rotate(10deg);
+        transform: rotate3d(0, 0, 1, 10deg);
     }
 
     60% {
-        transform: rotate(0deg);
+        transform: rotate3d(0, 0, 1, 0deg);
     }
 }
 
@@ -96,11 +97,15 @@
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
+    contain: layout style;
 
     .char {
         display: inline-block;
         opacity: 0;
-        animation: charFlyIn 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        animation: charFlyIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        perspective: 1000px;
 
         // Alternate characters come from different directions
         &:nth-child(4n+1) {
@@ -121,52 +126,52 @@
     }
 }
 
-// Character animations from different directions
+// Character animations from different directions - GPU accelerated
 @keyframes charFlyInFromTop {
     0% {
         opacity: 0;
-        transform: translateY(-100vh) rotate(-25deg) scale(0.2);
+        transform: translate3d(0, -100vh, 0) rotate(-25deg) scale(0.2);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0) rotate(0deg) scale(1);
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     }
 }
 
 @keyframes charFlyInFromRight {
     0% {
         opacity: 0;
-        transform: translateX(100vw) rotate(25deg) scale(0.2);
+        transform: translate3d(100vw, 0, 0) rotate(25deg) scale(0.2);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0) rotate(0deg) scale(1);
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     }
 }
 
 @keyframes charFlyInFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(100vh) rotate(25deg) scale(0.2);
+        transform: translate3d(0, 100vh, 0) rotate(25deg) scale(0.2);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0) rotate(0deg) scale(1);
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     }
 }
 
 @keyframes charFlyInFromLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100vw) rotate(-25deg) scale(0.2);
+        transform: translate3d(-100vw, 0, 0) rotate(-25deg) scale(0.2);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0) rotate(0deg) scale(1);
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     }
 }
 
@@ -249,4 +254,11 @@
             width: 100%;
         }
     }
+}
+
+@media (max-width: 575px) {
+    .hero-glass-container {
+        padding-top: 70px;
+    }
+
 }

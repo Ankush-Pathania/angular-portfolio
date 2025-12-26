@@ -1,3 +1,10 @@
+.color-picker-container {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
 .theme-toggle {
     width: 48px;
     height: 48px;
@@ -21,5 +28,105 @@
 
     &:hover svg {
         transform: rotate(20deg);
+    }
+}
+
+.color-picker-button {
+    &:hover svg {
+        transform: scale(1.1) !important;
+    }
+}
+
+.color-picker-dropdown {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    min-width: 280px;
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-base);
+    z-index: var(--z-dropdown);
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        right: -1rem;
+        min-width: 240px;
+    }
+}
+
+.color-picker-header {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.color-swatches {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.color-swatch {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &:hover {
+        transform: scale(1.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    &.active {
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+
+        svg {
+            animation: checkmark-pop 0.3s ease-out;
+        }
+    }
+
+    svg {
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    }
+
+    @media (max-width: 768px) {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@keyframes checkmark-pop {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

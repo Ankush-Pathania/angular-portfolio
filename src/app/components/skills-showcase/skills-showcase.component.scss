@@ -84,6 +84,7 @@
     display: flex;
     gap: var(--spacing-md);
     padding: 0 var(--spacing-md);
+    contain: layout style;
 }
 
 .skill-badge {
@@ -97,9 +98,10 @@
     transition: all var(--transition-base);
     cursor: pointer;
     overflow: hidden;
+    will-change: transform;
 
     &:hover {
-        transform: translateY(-5px) scale(1.05);
+        transform: translate3d(0, -5px, 0) scale(1.05);
         border-color: var(--color-accent-primary);
         box-shadow: var(--shadow-glow);
 
@@ -108,7 +110,7 @@
         }
 
         .skill-icon {
-            transform: rotate(360deg);
+            transform: rotate3d(0, 0, 1, 360deg);
             color: var(--color-accent-primary);
         }
     }
@@ -120,6 +122,7 @@
     justify-content: center;
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     color: var(--color-accent-secondary);
+    will-change: transform;
 
     svg {
         width: 20px;
@@ -152,11 +155,11 @@
 
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -195,6 +198,12 @@
 
     .scroll-content {
         animation-duration: 30s;
+    }
+
+    .scroll-wrapper {
+        padding: 0;
+
+
     }
 }
 
