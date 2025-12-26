@@ -107,3 +107,11 @@
         gap: var(--spacing-lg);
     }
 }
+
+@media (max-width: 575px) {
+
+    .visual-card,
+    .project-card {
+        padding: var(--spacing-sm) !important;
+    }
+}

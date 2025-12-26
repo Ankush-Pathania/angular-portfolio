@@ -114,7 +114,8 @@ export class PortfolioDataService {
         {
             title: 'WONDRFLY Platform',
             description: 'Comprehensive kids\' activities platform connecting parents with local providers. Features advanced search, filtering, and booking capabilities with a focus on user experience and performance.',
-            technologies: ['React', 'Angular', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
+            technologies: ['Angular', 'CSS', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
+            url: 'https://www.wondrfly.com',
             features: [
                 'Advanced search and filtering system',
                 'Responsive design for all devices',
@@ -127,6 +128,7 @@ export class PortfolioDataService {
             title: 'Meander Software - Corporate Website',
             description: 'Professional corporate website for Meander Software, a leading app development company. Features modern design, service showcases, and client portfolio displays.',
             technologies: ['Vue.js', 'HTML', 'CSS', 'JavaScript', 'Google Analytics'],
+            url: 'https://meander.software',
             features: [
                 'Modern, professional UI/UX design',
                 'Interactive service demonstrations',

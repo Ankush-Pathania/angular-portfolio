@@ -96,4 +96,20 @@
     .education-grid {
         grid-template-columns: 1fr;
     }
+
+    .education-card {
+        padding: var(--spacing-sm) !important;
+    }
+
+}
+
+@media (max-width: 575px) {
+
+    .education-card {
+        padding: var(--spacing-sm) !important;
+    }
+
+    .download-card {
+        padding: var(--spacing-md) !important;
+    }
 }
