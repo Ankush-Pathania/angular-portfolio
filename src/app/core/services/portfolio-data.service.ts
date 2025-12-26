@@ -32,6 +32,8 @@ export class PortfolioDataService {
         { name: 'Figma', level: 85, category: 'tools' },
         { name: 'GitHub', level: 85, category: 'tools' },
         { name: 'GIMP', level: 75, category: 'tools' },
+        { name: 'Photoshop', level: 70, category: 'tools' },
+        { name: 'ClickUp', level: 80, category: 'tools' },
 
         // Performance & SEO Tools
         { name: 'PageSpeed Insights', level: 90, category: 'tools' },
@@ -68,7 +70,7 @@ export class PortfolioDataService {
             company: 'Meander Software - WONDRFLY',
             role: 'Web Designer / UI Developer',
             period: '2023 - Present',
-            location: 'Remote',
+            location: '',
             description: 'Working on WONDRFLY platform (www.wondrfly.com), a comprehensive kids\' activities platform connecting parents with local providers.',
             technologies: ['Angular', 'HTML', 'CSS', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
             achievements: [
@@ -176,7 +178,7 @@ export class PortfolioDataService {
         {
             title: 'Business Analytics Dashboard',
             description: 'Advanced analytics dashboard for business intelligence with data visualization, reporting tools, and performance metrics tracking.',
-            technologies: ['Angular', 'Bootstrap', 'Chart.js', 'D3.js', 'REST API'],
+            technologies: ['Angular', 'Bootstrap', 'Chart.js'],
             features: [
                 'Real-time data visualization',
                 'Custom report generation',
