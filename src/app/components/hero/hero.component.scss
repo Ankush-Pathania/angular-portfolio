@@ -188,6 +188,7 @@
 @media (max-width: 768px) {
     .hero {
         min-height: 500px;
+        height: auto;
     }
 
     .hero-glass-container {
@@ -221,7 +222,8 @@
 
 @media (max-width: 575px) {
     .hero-glass-container {
-        padding-top: 70px;
+        padding: 100px 0;
+        margin: 0;
     }
 
 }
