@@ -56,7 +56,7 @@
         transition: opacity 0.8s ease, transform 0.8s ease;
 
         &.visible {
-            opacity: 0.5;
+            opacity: 0.35; // Increased from 0.15 for better visibility
             transform: scale(1) rotate(0deg);
         }
 
@@ -68,7 +68,7 @@
 
     .sun {
         svg {
-            filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 100px rgba(255, 165, 0, 0.6));
+            filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 30px rgba(255, 140, 0, 0.6));
         }
 
         .sun-rays {
@@ -79,7 +79,7 @@
 
     .moon {
         svg {
-            filter: drop-shadow(0 0 40px rgba(200, 200, 220, 0.6)) drop-shadow(0 0 80px rgba(150, 150, 200, 0.4));
+            filter: drop-shadow(0 0 50px rgba(240, 240, 240, 0.6)) drop-shadow(0 0 25px rgba(200, 200, 255, 0.4));
         }
     }
 }
@@ -108,7 +108,7 @@
 }
 
 .hero-inner {
-    display: flex;
+    // display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -119,6 +119,7 @@
 .greeting {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-xs);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
@@ -275,7 +276,7 @@
 
         .moon.visible,
         .sun.visible {
-            opacity: 0.35;
+            opacity: 0.25; // Increased for better mobile visibility
         }
     }
 

@@ -11,26 +11,29 @@
         <defs>
           <radialGradient id="moonGradient" cx="35%" cy="35%">
             <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-            <stop offset="40%" style="stop-color:#e8e8e8;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#b0b0b0;stop-opacity:1" />
+            <stop offset="40%" style="stop-color:#f5f5f5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
           </radialGradient>
-          <radialGradient id="craterGradient" cx="30%" cy="30%">
-            <stop offset="0%" style="stop-color:#808080;stop-opacity:0.5" />
-            <stop offset="100%" style="stop-color:#606060;stop-opacity:0.3" />
-          </radialGradient>
+          <filter id="moonGlow">
+            <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
+        <!-- Moon glow background -->
+        <circle cx="100" cy="100" r="85" fill="rgba(255, 255, 255, 0.1)" />
         <!-- Main moon circle -->
-        <circle cx="100" cy="100" r="80" fill="url(#moonGradient)" />
-        <!-- Craters with gradient -->
-        <circle cx="70" cy="75" r="18" fill="url(#craterGradient)" />
-        <circle cx="68" cy="73" r="14" fill="#959595" opacity="0.4" />
-        <circle cx="125" cy="95" r="14" fill="url(#craterGradient)" />
-        <circle cx="123" cy="93" r="10" fill="#959595" opacity="0.4" />
-        <circle cx="85" cy="125" r="12" fill="url(#craterGradient)" />
-        <circle cx="83" cy="123" r="8" fill="#959595" opacity="0.35" />
-        <circle cx="130" cy="70" r="10" fill="url(#craterGradient)" />
-        <circle cx="105" cy="135" r="8" fill="url(#craterGradient)" />
-        <circle cx="55" cy="105" r="9" fill="url(#craterGradient)" />
+        <circle cx="100" cy="100" r="75" fill="url(#moonGradient)" filter="url(#moonGlow)" />
+        <!-- Craters with better definition -->
+        <circle cx="70" cy="75" r="16" fill="#a0a0a0" opacity="0.4" />
+        <circle cx="72" cy="77" r="12" fill="#b8b8b8" opacity="0.3" />
+        <circle cx="120" cy="90" r="13" fill="#a0a0a0" opacity="0.35" />
+        <circle cx="122" cy="92" r="9" fill="#b8b8b8" opacity="0.25" />
+        <circle cx="85" cy="115" r="11" fill="#a0a0a0" opacity="0.3" />
+        <circle cx="125" cy="65" r="9" fill="#a0a0a0" opacity="0.35" />
+        <circle cx="105" cy="125" r="8" fill="#a0a0a0" opacity="0.3" />
       </svg>
     </div>
 
@@ -39,40 +42,34 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
         <defs>
           <radialGradient id="sunGradient" cx="50%" cy="50%">
-            <stop offset="0%" style="stop-color:#fff4d6;stop-opacity:1" />
-            <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
-            <stop offset="70%" style="stop-color:#ffb700;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#ffc107;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#ff9800;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ff6f00;stop-opacity:0.9" />
           </radialGradient>
-          <radialGradient id="sunCore" cx="50%" cy="50%">
-            <stop offset="0%" style="stop-color:#fffaeb;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0.8" />
-          </radialGradient>
+          <filter id="sunGlow">
+            <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
-        <!-- Sun rays (outer) -->
-        <g class="sun-rays">
-          <line x1="100" y1="15" x2="100" y2="35" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="100" y1="165" x2="100" y2="185" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="15" y1="100" x2="35" y2="100" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="165" y1="100" x2="185" y2="100" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="30" y1="30" x2="45" y2="45" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="155" y1="155" x2="170" y2="170" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="170" y1="30" x2="155" y2="45" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <line x1="45" y1="155" x2="30" y2="170" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
-          <!-- Additional shorter rays -->
-          <line x1="100" y1="25" x2="100" y2="40" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
-            opacity="0.7" />
-          <line x1="100" y1="160" x2="100" y2="175" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
-            opacity="0.7" />
-          <line x1="25" y1="100" x2="40" y2="100" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
-            opacity="0.7" />
-          <line x1="160" y1="100" x2="175" y2="100" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
-            opacity="0.7" />
+        <!-- Sun rays -->
+        <g class="sun-rays" stroke="#ffb300" stroke-width="5" stroke-linecap="round" opacity="0.9">
+          <line x1="100" y1="15" x2="100" y2="35" />
+          <line x1="100" y1="165" x2="100" y2="185" />
+          <line x1="15" y1="100" x2="35" y2="100" />
+          <line x1="165" y1="100" x2="185" y2="100" />
+          <line x1="30" y1="30" x2="45" y2="45" />
+          <line x1="155" y1="155" x2="170" y2="170" />
+          <line x1="170" y1="30" x2="155" y2="45" />
+          <line x1="45" y1="155" x2="30" y2="170" />
         </g>
+        <!-- Outer sun glow -->
+        <circle cx="100" cy="100" r="60" fill="rgba(255, 193, 7, 0.2)" />
         <!-- Main sun circle -->
-        <circle cx="100" cy="100" r="55" fill="url(#sunGradient)" />
-        <!-- Inner glow -->
-        <circle cx="100" cy="100" r="35" fill="url(#sunCore)" opacity="0.8" />
+        <circle cx="100" cy="100" r="50" fill="url(#sunGradient)" filter="url(#sunGlow)" />
       </svg>
     </div>
   </div>
@@ -83,7 +80,7 @@
       <div class="hero-glass-container">
         <div class="hero-inner">
           <!-- Greeting -->
-          <div class="greeting animate-fadeInUp">
+          <div class="greeting animate-fadeInUp justify-content-center">
             <span class="wave">👋</span>
             <span>Hello, I'm</span>
           </div>
