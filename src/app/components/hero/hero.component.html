@@ -2,6 +2,81 @@
   <!-- Three.js Background -->
   <div #threeContainer class="three-container"></div>
 
+  <!-- Sun/Moon Background -->
+  <div class="celestial-background">
+    <!-- Moon for Dark Mode -->
+    <div class="moon" [class.visible]="isDarkMode()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+        <!-- Moon circle with craters -->
+        <defs>
+          <radialGradient id="moonGradient" cx="35%" cy="35%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="40%" style="stop-color:#e8e8e8;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#b0b0b0;stop-opacity:1" />
+          </radialGradient>
+          <radialGradient id="craterGradient" cx="30%" cy="30%">
+            <stop offset="0%" style="stop-color:#808080;stop-opacity:0.5" />
+            <stop offset="100%" style="stop-color:#606060;stop-opacity:0.3" />
+          </radialGradient>
+        </defs>
+        <!-- Main moon circle -->
+        <circle cx="100" cy="100" r="80" fill="url(#moonGradient)" />
+        <!-- Craters with gradient -->
+        <circle cx="70" cy="75" r="18" fill="url(#craterGradient)" />
+        <circle cx="68" cy="73" r="14" fill="#959595" opacity="0.4" />
+        <circle cx="125" cy="95" r="14" fill="url(#craterGradient)" />
+        <circle cx="123" cy="93" r="10" fill="#959595" opacity="0.4" />
+        <circle cx="85" cy="125" r="12" fill="url(#craterGradient)" />
+        <circle cx="83" cy="123" r="8" fill="#959595" opacity="0.35" />
+        <circle cx="130" cy="70" r="10" fill="url(#craterGradient)" />
+        <circle cx="105" cy="135" r="8" fill="url(#craterGradient)" />
+        <circle cx="55" cy="105" r="9" fill="url(#craterGradient)" />
+      </svg>
+    </div>
+
+    <!-- Sun for Light Mode -->
+    <div class="sun" [class.visible]="!isDarkMode()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+        <defs>
+          <radialGradient id="sunGradient" cx="50%" cy="50%">
+            <stop offset="0%" style="stop-color:#fff4d6;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#ffd700;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#ffb700;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ff8800;stop-opacity:1" />
+          </radialGradient>
+          <radialGradient id="sunCore" cx="50%" cy="50%">
+            <stop offset="0%" style="stop-color:#fffaeb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0.8" />
+          </radialGradient>
+        </defs>
+        <!-- Sun rays (outer) -->
+        <g class="sun-rays">
+          <line x1="100" y1="15" x2="100" y2="35" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="100" y1="165" x2="100" y2="185" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="15" y1="100" x2="35" y2="100" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="165" y1="100" x2="185" y2="100" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="30" y1="30" x2="45" y2="45" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="155" y1="155" x2="170" y2="170" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="170" y1="30" x2="155" y2="45" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <line x1="45" y1="155" x2="30" y2="170" stroke="#ffb700" stroke-width="6" stroke-linecap="round" />
+          <!-- Additional shorter rays -->
+          <line x1="100" y1="25" x2="100" y2="40" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
+            opacity="0.7" />
+          <line x1="100" y1="160" x2="100" y2="175" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
+            opacity="0.7" />
+          <line x1="25" y1="100" x2="40" y2="100" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
+            opacity="0.7" />
+          <line x1="160" y1="100" x2="175" y2="100" stroke="#ffd700" stroke-width="4" stroke-linecap="round"
+            opacity="0.7" />
+        </g>
+        <!-- Main sun circle -->
+        <circle cx="100" cy="100" r="55" fill="url(#sunGradient)" />
+        <!-- Inner glow -->
+        <circle cx="100" cy="100" r="35" fill="url(#sunCore)" opacity="0.8" />
+      </svg>
+    </div>
+  </div>
+
   <!-- Hero Content -->
   <div class="hero-content">
     <div class="container">

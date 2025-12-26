@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } fr
 import { CommonModule } from '@angular/common';
 import { ThreeService } from '../../core/services/three.service';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
+import { ThemeService } from '../../core/services/theme.service';
 import { SocialLinksComponent } from '../shared/social-links/social-links.component';
 
 @Component({
@@ -17,10 +18,12 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     profile = this.portfolioData.profile;
     nameChars: string[] = [];
     threeJsLoaded = false;
+    isDarkMode = this.themeService.isDarkMode;
 
     constructor(
         private threeService: ThreeService,
-        private portfolioData: PortfolioDataService
+        private portfolioData: PortfolioDataService,
+        private themeService: ThemeService
     ) { }
 
     ngOnInit(): void {
