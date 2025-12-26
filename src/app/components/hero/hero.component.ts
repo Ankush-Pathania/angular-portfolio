@@ -16,6 +16,7 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
 
     profile = this.portfolioData.profile;
     nameChars: string[] = [];
+    threeJsLoaded = false;
 
     constructor(
         private threeService: ThreeService,
@@ -28,16 +29,38 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        // Initialize Three.js scene
-        if (this.threeContainer) {
+        // Defer Three.js initialization to prevent blocking main thread
+        // Use requestIdleCallback for better performance
+        if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(() => this.initThreeJS(), { timeout: 2000 });
+        } else {
+            // Fallback for browsers without requestIdleCallback
+            setTimeout(() => this.initThreeJS(), 100);
+        }
+    }
+
+    private initThreeJS(): void {
+        if (this.threeContainer && !this.threeJsLoaded) {
             this.threeService.initScene(this.threeContainer.nativeElement);
             this.threeService.addMouseInteraction();
+            this.threeJsLoaded = true;
+
+            // Add class to hero for fade-in effect
+            const heroElement = this.threeContainer.nativeElement.closest('.hero');
+            if (heroElement) {
+                heroElement.classList.add('three-loaded');
+            }
         }
     }
 
     ngOnDestroy(): void {
         // Clean up Three.js resources
         this.threeService.dispose();
+    }
+
+    // TrackBy function for better ngFor performance
+    trackByIndex(index: number): number {
+        return index;
     }
 
     scrollToProjects(): void {

@@ -33,13 +33,15 @@ export class ThreeService {
         );
         this.camera.position.z = 50;
 
-        // Renderer setup
+        // Renderer setup with performance optimizations
         this.renderer = new THREE.WebGLRenderer({
             alpha: true,
-            antialias: true
+            antialias: window.innerWidth > 1024, // Only on desktop
+            powerPreference: 'high-performance'
         });
         this.renderer.setSize(container.clientWidth, container.clientHeight);
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        // Limit pixel ratio for better performance
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         container.appendChild(this.renderer.domElement);
 
         // Create particle system
@@ -64,12 +66,13 @@ export class ThreeService {
     }
 
     /**
-     * Create particle system with 5000+ particles
+     * Create particle system with optimized particle count
      */
     private createParticleSystem(): void {
         if (!this.scene) return;
 
-        const particleCount = 5000;
+        // Responsive particle count: fewer on mobile for better performance
+        const particleCount = window.innerWidth < 768 ? 1000 : 2000;
         const positions = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
 
@@ -80,13 +83,9 @@ export class ThreeService {
             positions[i + 1] = (Math.random() - 0.5) * 100;
             positions[i + 2] = (Math.random() - 0.5) * 100;
 
-            // Color (purple to cyan gradient)
-            const color = new THREE.Color();
-            color.setHSL(
-                Math.random() * 0.2 + 0.6, // Hue: purple to cyan
-                0.8,
-                0.6
-            );
+            // Simplified color calculation for better performance
+            const hue = Math.random() * 0.2 + 0.6; // Purple to cyan
+            const color = new THREE.Color().setHSL(hue, 0.8, 0.6);
             colors[i] = color.r;
             colors[i + 1] = color.g;
             colors[i + 2] = color.b;
@@ -109,7 +108,7 @@ export class ThreeService {
     }
 
     /**
-     * Create floating geometric shapes
+     * Create floating geometric shapes (optimized: 2 geometries instead of 3)
      */
     private createFloatingGeometries(): void {
         if (!this.scene) return;
@@ -127,8 +126,8 @@ export class ThreeService {
         this.geometries.push(icosahedron);
         this.scene.add(icosahedron);
 
-        // Torus
-        const torusGeometry = new THREE.TorusGeometry(4, 1.5, 16, 100);
+        // Torus (simplified segments for better performance)
+        const torusGeometry = new THREE.TorusGeometry(4, 1.5, 12, 50);
         const torusMaterial = new THREE.MeshPhongMaterial({
             color: 0x06b6d4,
             wireframe: true,
@@ -140,18 +139,7 @@ export class ThreeService {
         this.geometries.push(torus);
         this.scene.add(torus);
 
-        // Octahedron
-        const octaGeometry = new THREE.OctahedronGeometry(4, 0);
-        const octaMaterial = new THREE.MeshPhongMaterial({
-            color: 0xa78bfa,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.3,
-        });
-        const octahedron = new THREE.Mesh(octaGeometry, octaMaterial);
-        octahedron.position.set(0, -15, -20);
-        this.geometries.push(octahedron);
-        this.scene.add(octahedron);
+        // Removed third geometry (octahedron) for better performance
     }
 
     /**

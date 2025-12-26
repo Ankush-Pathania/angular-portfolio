@@ -15,7 +15,8 @@
 
           <!-- Name -->
           <h1 class="name gradient-text">
-            <span *ngFor="let char of nameChars; let i = index" class="char" [style.animation-delay]="(i * 0.1) + 's'">
+            <span *ngFor="let char of nameChars; let i = index; trackBy: trackByIndex" class="char"
+              [style.animation-delay]="(i * 0.1) + 's'">
               {{ char === ' ' ? '\u00A0' : char }}
             </span>
           </h1>
