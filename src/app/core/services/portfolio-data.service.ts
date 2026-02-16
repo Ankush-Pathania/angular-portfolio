@@ -22,17 +22,19 @@ export class PortfolioDataService {
         { name: 'HTML', level: 95, category: 'frontend' },
         { name: 'CSS', level: 90, category: 'frontend' },
         { name: 'SCSS', level: 88, category: 'frontend' },
-        { name: 'JavaScript', level: 85, category: 'frontend' },
-        { name: 'jQuery', level: 80, category: 'frontend' },
-        { name: 'React', level: 40, category: 'frontend' },
+        { name: 'JavaScript', level: 40, category: 'frontend' },
+        { name: 'jQuery', level: 40, category: 'frontend' },
+        { name: 'React', level: 60, category: 'frontend' },
         { name: 'Angular', level: 40, category: 'frontend' },
+        { name: 'Wordpress', level: 70, category: 'frontend' },
+        { name: 'Elementor', level: 70, category: 'frontend' },
+        { name: 'Bootstrap', level: 88, category: 'tools' },
 
         // Tools & Technologies
-        { name: 'Bootstrap', level: 88, category: 'tools' },
         { name: 'Figma', level: 85, category: 'tools' },
         { name: 'GitHub', level: 85, category: 'tools' },
         { name: 'GIMP', level: 75, category: 'tools' },
-        { name: 'Photoshop', level: 70, category: 'tools' },
+        { name: 'Photoshop', level: 50, category: 'tools' },
         { name: 'ClickUp', level: 80, category: 'tools' },
 
         // Performance & SEO Tools
@@ -61,7 +63,6 @@ export class PortfolioDataService {
         { name: 'Cross-browser Compatibility', level: 90, category: 'professional' },
         { name: 'Version Control (Git)', level: 85, category: 'professional' },
         { name: 'Team Collaboration', level: 90, category: 'professional' },
-        { name: 'Project Management', level: 85, category: 'professional' },
     ]);
 
     // Professional Experience
@@ -140,53 +141,56 @@ export class PortfolioDataService {
             ]
         },
         {
-            title: 'Food Ordering & Delivery Platform',
-            description: 'Full-featured food ordering and delivery application enabling customers to browse restaurants, place orders, and track deliveries in real-time.',
-            technologies: ['Angular', 'HTML', 'SCSS', 'Bootstrap', 'REST API'],
+            title: 'CRM Dashboard (HTML + BOOTSTRAP)',
+            description: 'This project is a responsive admin dashboard interface built entirely using HTML and Bootstrap, focusing on clean layout structure, usability, and modern UI patterns.',
+            technologies: ['HTML','Bootstrap'],
+           url: 'https://assignment-rudra.netlify.app/',
             features: [
-                'Restaurant browsing and menu management',
-                'Real-time order tracking',
-                'Payment gateway integration',
-                'Responsive mobile-first design',
-                'Admin dashboard for restaurant management'
+                 'Sidebar navigation with structured dashboard layout',
+    'Analytics cards displaying key business metrics',
+    'Responsive grid system for all screen sizes',
+    'Clean admin UI with Bootstrap components',
+    'Consistent spacing and typography system'
             ]
         },
         {
-            title: 'Salon & Spa Booking System',
-            description: 'Comprehensive booking platform for salons and spas with appointment scheduling, service management, and client relationship features.',
-            technologies: ['HTML', 'CSS', 'SCSS', 'JavaScript', 'jQuery', 'Bootstrap'],
+            title: 'Pet Services Landing Page',
+            description: 'This project is a modern pet services landing page that I first designed in Figma and then developed into a fully responsive website. The goal was to maintain pixel-perfect accuracy while translating the design into clean, structured front-end code.',
+            technologies: ['HTML', 'SCSS', 'JavaScript', 'Bootstrap'],
+            url: 'https://wuffet.netlify.app/',
             features: [
-                'Easy appointment scheduling interface',
-                'Service catalog management',
-                'Staff availability calendar',
-                'Client booking history',
-                'Email notifications and reminders'
+                  'Pixel-perfect Figma-to-code implementation',
+    'Fully responsive layout across devices',
+    'Modern hero section with strong visual hierarchy',
+    'Clean typography and structured spacing system',
+    'Reusable UI components and Bootstrap grid layout'
             ]
         },
         {
-            title: 'Healthcare Appointment Portal',
-            description: 'Doctor appointment booking system connecting patients with healthcare providers. Features include appointment scheduling, medical records, and telemedicine capabilities.',
-            technologies: ['Angular', 'Bootstrap', 'SCSS', 'TypeScript', 'REST API'],
+            title: 'GTG Perfumes landing page',
+            description: 'The GTG Perfumes landing page is a modern, visually engaging website built using HTML, CSS, and JavaScript. The project focuses on elegant presentation, smooth user interaction, and a premium aesthetic that reflects a fragrance brand identity.',
+            technologies: ['HTML', 'Bootstrap', 'CSS', 'JavaScript'],
+            url: 'https://assignment-frontend-ankush.netlify.app/',
             features: [
-                'Doctor search and filtering by specialty',
-                'Online appointment booking',
-                'Patient medical records management',
-                'Video consultation integration',
-                'Prescription and report viewing'
+                'JavaScript-powered animated counter for dynamic statistics',
+  'Interactive carousel where selected thumbnails expand into a main preview image',
+  'Scroll reveal animations for engaging content transitions',
+  'Sticky header for smooth navigation and better usability',
+  'Modern UI interactions to enhance user experience'
             ]
         },
         {
-            title: 'Business Analytics Dashboard',
-            description: 'Advanced analytics dashboard for business intelligence with data visualization, reporting tools, and performance metrics tracking.',
+            title: 'Health & Nutrition Landing Page',
+            description: 'This project is a modern health and nutrition landing page that was first designed in Figma and then developed using HTML, CSS, and Bootstrap.',
             technologies: ['Angular', 'Bootstrap', 'Chart.js'],
+            url: 'https://amrit-deol.netlify.app/',
             features: [
-                'Real-time data visualization',
-                'Custom report generation',
-                'Interactive charts and graphs',
-                'Performance metrics tracking',
-                'Export capabilities (PDF, Excel)',
-                'Responsive admin interface'
-            ]
+  'Pixel-perfect Figma-to-code implementation',
+  'Modern hero section with strong visual hierarchy',
+  'Sticky navigation for smooth browsing',
+  'Optimized layout for cross-device compatibility',
+  'Brand-focused visual styling and layout consistency'
+]
         },
         {
             title: 'International Client Portfolio Websites',

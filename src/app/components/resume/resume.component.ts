@@ -17,6 +17,6 @@ export class ResumeComponent {
 
     downloadResume(): void {
         // In a real app, this would download the actual PDF
-        window.open('/assets/resume.pdf', '_blank');
+        window.open('/assets/wordresume.docx.pdf', '_blank');
     }
 }
