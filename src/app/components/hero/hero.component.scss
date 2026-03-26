@@ -7,15 +7,15 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-background: url('../../../assets/ankush.png') no-repeat center center;
+// background: url('../../../assets/ankush.png') no-repeat center center;
     // Static gradient background as fallback (progressive enhancement)
-    // background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e293b 100%);
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e293b 100%);
     transition: background 0.8s ease-out;
 background-size: cover;
     // Hide gradient when Three.js loads
-    // &.three-loaded {
-    //     background: transparent;
-    // }
+    &.three-loaded {
+        background: transparent;
+    }
 }
 
 .three-container {
