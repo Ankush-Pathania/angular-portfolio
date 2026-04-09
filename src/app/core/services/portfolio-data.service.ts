@@ -13,7 +13,7 @@ export class PortfolioDataService {
         email: 'apathania611@gmail.com',
         phone: '6286603909',
         location: 'TDI Green Enclave, Mohali, Punjab',
-        summary: 'Experienced Web Designer and Frontend Developer with 3+ years of expertise in creating responsive, user-friendly websites and applications. Skilled in React, Angular, HTML, CSS, SCSS, JavaScript, jQuery, and modern development tools. Proven track record of delivering 50+ successful projects with 100% client satisfaction. Strong communication skills and experience collaborating with cross-functional teams across different time zones.'
+        summary: 'Experienced Web Designer and Frontend Developer with 5+ years of expertise in creating responsive, user-friendly websites and applications. Skilled in React, Angular, HTML, CSS, SCSS, JavaScript, jQuery, and modern development tools. Proven track record of delivering 50+ successful projects with 100% client satisfaction. Strong communication skills and experience collaborating with cross-functional teams across different time zones.'
     });
 
     // Skills organized by category
@@ -29,6 +29,7 @@ export class PortfolioDataService {
         { name: 'Wordpress', level: 70, category: 'frontend' },
         { name: 'Elementor', level: 70, category: 'frontend' },
         { name: 'Bootstrap', level: 88, category: 'tools' },
+        { name: 'Shopify', level: 90, category: 'frontend' },
 
         // Tools & Technologies
         { name: 'Figma', level: 85, category: 'tools' },
