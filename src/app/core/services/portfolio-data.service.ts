@@ -25,6 +25,7 @@ export class PortfolioDataService {
         { name: 'JavaScript', level: 40, category: 'frontend' },
         { name: 'jQuery', level: 40, category: 'frontend' },
         { name: 'React', level: 60, category: 'frontend' },
+        { name: 'Next Js', level: 60, category: 'frontend' },
         { name: 'Angular', level: 40, category: 'frontend' },
         { name: 'Wordpress', level: 70, category: 'frontend' },
         { name: 'Elementor', level: 70, category: 'frontend' },
