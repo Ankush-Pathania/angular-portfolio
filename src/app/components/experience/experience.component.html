@@ -1,45 +1,134 @@
-<section id="experience" class="experience section">
-    <div class="container">
-        <div class="section-header scroll-animate" appScrollAnimation>
-            <h2 class="gradient-text">Work Experience</h2>
-            <p class="section-subtitle">My professional journey</p>
+<section id="experience" class="exp-journey">
+    <div class="atmosphere" aria-hidden="true">
+        <div class="glow g1"></div>
+        <div class="glow g2"></div>
+        <div class="glow g3"></div>
+    </div>
+
+    <div
+        class="float-icon moon"
+        appMagnet
+        [magnetPadding]="80"
+        [magnetStrength]="4"
+        appFadeIn
+        [fadeX]="-60"
+        [fadeY]="0"
+    >
+        <img [src]="decor.moon" alt="" width="160" height="160" loading="lazy" />
+    </div>
+    <div
+        class="float-icon lego"
+        appMagnet
+        [magnetPadding]="80"
+        [magnetStrength]="4"
+        appFadeIn
+        [fadeDelay]="0.1"
+        [fadeX]="60"
+        [fadeY]="0"
+    >
+        <img [src]="decor.lego" alt="" width="150" height="150" loading="lazy" />
+    </div>
+    <div
+        class="float-icon cube"
+        appMagnet
+        [magnetPadding]="70"
+        [magnetStrength]="5"
+        appFadeIn
+        [fadeDelay]="0.2"
+        [fadeX]="-40"
+        [fadeY]="40"
+    >
+        <img [src]="decor.cube" alt="" width="130" height="130" loading="lazy" />
+    </div>
+    <div
+        class="float-icon group"
+        appMagnet
+        [magnetPadding]="70"
+        [magnetStrength]="5"
+        appFadeIn
+        [fadeDelay]="0.25"
+        [fadeX]="40"
+        [fadeY]="40"
+    >
+        <img [src]="decor.group" alt="" width="140" height="140" loading="lazy" />
+    </div>
+
+    <div class="journey-inner">
+        <header class="journey-head" appFadeIn [fadeY]="28">
+            <p class="eyebrow">Career path</p>
+            <h2 class="display-heading">Work Experience</h2>
+            <p class="lead">
+                Four chapters. Scroll the path — each role reveals with depth, not a slider.
+            </p>
+        </header>
+
+        <!-- Living spine -->
+        <div class="spine" aria-hidden="true">
+            <div class="spine-line">
+                <div
+                    class="spine-fill"
+                    [style.height.%]="totalProgress"
+                ></div>
+            </div>
+            <div
+                *ngFor="let exp of experience(); let i = index"
+                class="spine-dot"
+                [class.active]="activeIndex === i"
+                [class.passed]="activeIndex > i"
+                [style.top.%]="dotPosition(i)"
+            >
+                {{ (i + 1) | number: '2.0-0' }}
+            </div>
         </div>
 
-        <div class="timeline">
-            <div *ngFor="let exp of experience(); let i = index" class="timeline-item scroll-animate"
-                [class.scroll-animate-left]="i % 2 === 0" [class.scroll-animate-right]="i % 2 !== 0" appScrollAnimation>
-                <div class="timeline-marker">
-                    <div class="marker-dot"></div>
+        <div class="chapters">
+            <article
+                *ngFor="let exp of experience(); let i = index; trackBy: trackByCompany"
+                #chapter
+                class="chapter"
+                [attr.data-index]="i"
+                [class.flip]="i % 2 === 1"
+                [class.current]="isCurrent(exp)"
+                [class.active]="activeIndex === i"
+            >
+                <div class="chapter-index" aria-hidden="true">
+                    <span>{{ (i + 1) | number: '2.0-0' }}</span>
                 </div>
 
-                <div class="timeline-content glass">
-                    <div class="experience-header">
-                        <div>
-                            <h3>{{ exp.role }}</h3>
-                            <h4>{{ exp.company }}</h4>
-                        </div>
-                        <div class="experience-meta">
+                <div class="chapter-stage" appTilt3d [tiltMax]="7" [tiltScale]="1.015">
+                    <div class="layer back" aria-hidden="true"></div>
+                    <div class="layer mid" aria-hidden="true"></div>
+
+                    <div class="chapter-content">
+                        <div class="meta">
+                            <span class="live" *ngIf="isCurrent(exp)"><i></i> Now</span>
                             <span class="period">{{ exp.period }}</span>
-                            <span class="location">{{ exp.location }}</span>
+                            <span class="location" *ngIf="exp.location">{{ exp.location }}</span>
+                        </div>
+
+                        <h3 class="role">{{ exp.role }}</h3>
+                        <h4 class="company">{{ exp.company }}</h4>
+                        <p class="copy">{{ exp.description }}</p>
+
+                        <div class="techs">
+                            <span *ngFor="let tech of exp.technologies; let t = index"
+                                  [style.transitionDelay]="(t * 40) + 'ms'">
+                                {{ tech }}
+                            </span>
+                        </div>
+
+                        <div class="wins">
+                            <h5>Key Achievements</h5>
+                            <ul>
+                                <li *ngFor="let item of exp.achievements">
+                                    <em>→</em>
+                                    {{ item }}
+                                </li>
+                            </ul>
                         </div>
                     </div>
-
-                    <p class="description">{{ exp.description }}</p>
-
-                    <div class="technologies">
-                        <span *ngFor="let tech of exp.technologies" class="tech-tag">
-                            {{ tech }}
-                        </span>
-                    </div>
-
-                    <div class="achievements">
-                        <h5>Key Achievements:</h5>
-                        <ul>
-                            <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
-                        </ul>
-                    </div>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </section>

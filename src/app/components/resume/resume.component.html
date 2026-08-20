@@ -1,43 +1,90 @@
-<section id="resume" class="resume section">
-    <div class="container">
-        <div class="section-header scroll-animate" appScrollAnimation>
-            <h2 class="gradient-text">Education</h2>
-            <p class="section-subtitle">Academic background</p>
-        </div>
+<section id="resume" class="edu-brand">
+    <div class="glow a" aria-hidden="true"></div>
+    <div class="glow b" aria-hidden="true"></div>
 
-        <div class="education-grid">
-            <div *ngFor="let edu of education()" class="education-card glass scroll-animate-scale" appScrollAnimation>
-                <div class="education-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                    </svg>
-                </div>
+    <div
+        class="float-deco left"
+        appMagnet
+        [magnetPadding]="70"
+        [magnetStrength]="4"
+        appFadeIn
+        [fadeX]="-50"
+        [fadeY]="0"
+    >
+        <img [src]="decor.moon" alt="" width="140" height="140" loading="lazy" />
+    </div>
+    <div
+        class="float-deco right"
+        appMagnet
+        [magnetPadding]="70"
+        [magnetStrength]="4"
+        appFadeIn
+        [fadeDelay]="0.12"
+        [fadeX]="50"
+        [fadeY]="0"
+    >
+        <img [src]="decor.lego" alt="" width="140" height="140" loading="lazy" />
+    </div>
 
-                <h3>{{ edu.degree }}</h3>
-                <h4>{{ edu.institution }}</h4>
-                <span class="period">{{ edu.period }}</span>
-                <p class="description">{{ edu.description }}</p>
+    <div class="brand-inner">
+        <header class="brand-head" appFadeIn [fadeY]="28">
+            <p class="eyebrow">Credentials</p>
+            <h2 class="display-heading">Education</h2>
+            <p class="lead">Academic roots and industry training — stamped into the brand.</p>
+        </header>
+
+        <!-- Ambient brand wordmark ribbon (decorative, not a card carousel) -->
+        <div class="brand-ribbon" aria-hidden="true" appFadeIn [fadeDelay]="0.08" [fadeY]="16">
+            <div class="ribbon-track">
+                <span *ngFor="let name of brandRibbon">{{ name }}</span>
             </div>
         </div>
 
-        <!-- <div class="download-section scroll-animate" appScrollAnimation>
-            <div class="download-card glass gradient-border">
-                <div class="download-content">
-                    <h3>Download Full Resume</h3>
-                    <p>Get a complete overview of my experience, skills, and education</p>
-                    <button class="btn btn-primary" (click)="downloadResume()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download CV
-                    </button>
+        <div class="credential-stage">
+            <article
+                *ngFor="let edu of education(); let i = index; trackBy: trackByDegree"
+                class="credential"
+                [class.featured]="edu.type === 'internship'"
+                [style.--i]="i"
+                appFadeIn
+                [fadeDelay]="i * 0.12"
+                [fadeY]="36"
+                appTilt3d
+                [tiltMax]="9"
+                [tiltScale]="1.02"
+            >
+                <div class="credential-foil" aria-hidden="true"></div>
+                <div class="credential-mark" aria-hidden="true">{{ initials(edu) }}</div>
+
+                <div
+                    class="seal"
+                    appMagnet
+                    [magnetPadding]="40"
+                    [magnetStrength]="3"
+                >
+                    <span class="seal-ring"></span>
+                    <span class="seal-core">{{ (i + 1) | number: '2.0-0' }}</span>
                 </div>
-            </div>
-        </div> -->
+
+                <div class="credential-body">
+                    <div class="tags">
+                        <span class="type-tag" [attr.data-type]="edu.type || 'degree'">
+                            {{ typeLabel(edu) }}
+                        </span>
+                        <span class="period-tag">{{ edu.period }}</span>
+                    </div>
+
+                    <h3 class="degree">{{ edu.degree }}</h3>
+                    <p class="institution">{{ edu.institution }}</p>
+                    <p class="copy">{{ edu.description }}</p>
+
+                    <div class="stamp-line" aria-hidden="true">
+                        <span></span>
+                        <em>Verified path</em>
+                        <span></span>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
 </section>

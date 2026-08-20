@@ -20,6 +20,7 @@
     "@angular/router": "^17.3.0",
     "@emailjs/browser": "^4.4.1",
     "gsap": "^3.14.2",
+    "lenis": "^1.1.18",
     "rxjs": "~7.8.0",
     "three": "^0.160.0",
     "tslib": "^2.3.0",

@@ -1,53 +1,103 @@
-<section id="projects" class="projects section">
-    <div class="container">
-        <div class="section-header scroll-animate" appScrollAnimation>
-            <h2 class="gradient-text">Featured Projects</h2>
-            <p class="section-subtitle">Showcasing my best work</p>
-        </div>
+<section
+    id="projects"
+    class="projects-showcase relative z-10 -mt-6 rounded-t-[40px] bg-[var(--bg-dark)] px-5 pb-24 pt-20 sm:-mt-8 sm:rounded-t-[50px] sm:px-8 sm:pt-24 md:-mt-10 md:rounded-t-[60px] md:px-10 md:pt-32"
+>
+    <h2
+        class="display-heading mb-16 text-center sm:mb-20 md:mb-28"
+        style="font-size: clamp(2.75rem, 10vw, 140px)"
+        appFadeIn
+        [fadeDelay]="0"
+        [fadeY]="40"
+    >
+        Project
+    </h2>
 
-        <div class="projects-grid">
-            <div *ngFor="let project of projects(); let i = index" class="project-card glass scroll-animate-scale"
-                [style.animation-delay]="(i * 0.15) + 's'" appScrollAnimation>
-                <div class="project-header">
-                    <div class="project-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
+    <!-- Desktop / tablet: native sticky stack (no scroll-jacking) -->
+    <div
+        class="stack-root mx-auto max-w-6xl"
+        appStickyStack
+        [stackScaleAmount]="0.05"
+        [stackDimAmount]="0.16"
+    >
+        <div
+            *ngFor="let project of projects(); let i = index; trackBy: trackByTitle"
+            class="sticky-stack-slot"
+            [style.zIndex]="i + 1"
+        >
+            <!-- Sticky shell: no transform here (keeps stacking/z-index reliable) -->
+            <div class="sticky-stack-card">
+                <article
+                    class="sticky-stack-inner project-card"
+                    [attr.data-stack-index]="i"
+                >
+                    <div class="card-header">
+                        <div class="card-identity">
+                            <span class="card-number">{{ pad(i) }}</span>
+                            <div class="card-meta">
+                                <span class="card-label">{{ project.category || 'Client' }}</span>
+                                <h3 class="card-title">{{ project.title }}</h3>
+                                <div class="card-tags">
+                                    <span *ngFor="let tech of project.technologies" class="tag-pill">
+                                        {{ tech }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            *ngIf="project.url; else statusBadge"
+                            [href]="project.url"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="status-badge status-badge--link"
+                        >
+                            Live Project
+                        </a>
+                        <ng-template #statusBadge>
+                            <span class="status-badge">Case Study</span>
+                        </ng-template>
                     </div>
-                    <h3>{{ project.title }}</h3>
-                </div>
 
-                <p class="project-description">{{ project.description }}</p>
+                    <!-- Image grid or graceful fallback -->
+                    <div *ngIf="resolveGallery(project) as gallery; else imageFallback" class="image-grid">
+                        <div class="image-col image-col--left">
+                            <img
+                                [src]="gallery.leftTop"
+                                [alt]="project.title + ' preview 1'"
+                                width="640"
+                                height="230"
+                                loading="lazy"
+                            />
+                            <img
+                                [src]="gallery.leftBottom"
+                                [alt]="project.title + ' preview 2'"
+                                width="640"
+                                height="340"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="image-col image-col--right">
+                            <img
+                                [src]="gallery.right"
+                                [alt]="project.title + ' preview 3'"
+                                width="960"
+                                height="580"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
 
-                <div class="project-technologies">
-                    <span *ngFor="let tech of project.technologies" class="tech-badge">
-                        {{ tech }}
-                    </span>
-                </div>
-
-                <div *ngIf="project.features" class="project-features">
-                    <h4>Key Features:</h4>
-                    <ul>
-                        <li *ngFor="let feature of project.features">{{ feature }}</li>
-                    </ul>
-                </div>
-
-                <div class="project-footer">
-                    <a *ngIf="project.url" [href]="project.url" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-primary btn-visit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                        Visit Website
-                    </a>
-                    <div class="project-glow"></div>
-                </div>
+                    <ng-template #imageFallback>
+                        <div class="image-fallback" aria-label="Image coming soon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <path d="M21 15l-5-5L5 21"></path>
+                            </svg>
+                            <span>Image coming soon</span>
+                        </div>
+                    </ng-template>
+                </article>
             </div>
         </div>
     </div>

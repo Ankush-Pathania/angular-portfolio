@@ -1,35 +1,32 @@
-<app-nav></app-nav>
-
-<main class="main-content" style="overflow: hidden;">
+<main class="main-wrapper">
     <app-hero></app-hero>
-    <app-skills-showcase></app-skills-showcase>
+    <app-marquee></app-marquee>
     <app-about></app-about>
+    <app-services></app-services>
+    <app-projects></app-projects>
+    <app-skills-showcase></app-skills-showcase>
     <app-skills></app-skills>
     <app-experience></app-experience>
-    <app-projects></app-projects>
     <app-resume></app-resume>
     <app-contact></app-contact>
     <app-back-to-top></app-back-to-top>
-
 </main>
 
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <h3 class="gradient-text">Ankush Pathania</h3>
-                    <p class="footer-tagline">Web Designer & Frontend Developer</p>
-                </div>
-                <div class="footer-social">
-                    <p class="social-title">Connect with me</p>
-                    <app-social-links></app-social-links>
-                </div>
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div>
+                <h3 class="display-heading footer-name">Ankush Pathania</h3>
+                <p class="footer-tagline">Web Designer &amp; Frontend Developer</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; {{ currentYear }} Ankush Pathania. All rights reserved.</p>
-                <p class="footer-tech">Built with <span class="gradient-text">Angular</span></p>
+            <div class="footer-social">
+                <p class="social-title">Connect with me</p>
+                <app-social-links></app-social-links>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ currentYear }} Ankush Pathania. All rights reserved.</p>
+            <p>Built with <span class="display-heading footer-tech">Angular</span></p>
         </div>
     </div>
 </footer>

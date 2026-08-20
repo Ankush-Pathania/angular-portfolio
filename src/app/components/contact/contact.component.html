@@ -1,114 +1,169 @@
-<section id="contact" class="contact section">
-    <div class="container">
-        <div class="section-header scroll-animate" appScrollAnimation>
-            <h2 class="gradient-text">Get In Touch</h2>
-            <p class="section-subtitle">Let's work together</p>
+<section id="contact" class="contact-stage">
+    <div class="glow g1" aria-hidden="true"></div>
+    <div class="glow g2" aria-hidden="true"></div>
+    <div class="grid-floor" aria-hidden="true"></div>
+
+    <div
+        class="float-deco moon"
+        appMagnet
+        [magnetPadding]="70"
+        [magnetStrength]="4"
+        appFadeIn
+        [fadeX]="-50"
+        [fadeY]="0"
+    >
+        <img [src]="decor.moon" alt="" width="140" height="140" loading="lazy" />
+    </div>
+    <div
+        class="float-deco cube"
+        appMagnet
+        [magnetPadding]="70"
+        [magnetStrength]="4"
+        appFadeIn
+        [fadeDelay]="0.12"
+        [fadeX]="50"
+        [fadeY]="0"
+    >
+        <img [src]="decor.cube" alt="" width="120" height="120" loading="lazy" />
+    </div>
+    <div
+        class="float-deco group"
+        appMagnet
+        [magnetPadding]="60"
+        [magnetStrength]="5"
+        appFadeIn
+        [fadeDelay]="0.2"
+        [fadeX]="40"
+        [fadeY]="30"
+    >
+        <img [src]="decor.group" alt="" width="130" height="130" loading="lazy" />
+    </div>
+
+    <div class="stage-inner">
+        <header class="stage-head" appFadeIn [fadeY]="28">
+            <p class="eyebrow">Start a project</p>
+            <h2 class="display-heading">
+                Get In<br />Touch
+            </h2>
+            <p class="lead">
+                Tell me about your idea — I’ll help shape it into a clear, usable, beautifully crafted experience.
+            </p>
+        </header>
+
+        <div class="channel-row" appFadeIn [fadeDelay]="0.1" [fadeY]="24">
+            <a class="channel" [href]="'mailto:' + profile().email" appTilt3d [tiltMax]="10">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                    <span class="label">Email</span>
+                    <strong>{{ profile().email }}</strong>
+                </div>
+            </a>
+
+            <a class="channel" [href]="'tel:' + profile().phone" appTilt3d [tiltMax]="10">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                    <span class="label">Phone</span>
+                    <strong>{{ profile().phone }}</strong>
+                </div>
+            </a>
+
+            <div class="channel" appTilt3d [tiltMax]="10">
+                <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                    <span class="label">Location</span>
+                    <strong>{{ profile().location }}</strong>
+                </div>
+            </div>
         </div>
 
-        <div class="contact-content">
-            <div class="contact-info scroll-animate-left" appScrollAnimation>
-                <h3>Contact Information</h3>
+        <div class="compose" appFadeIn [fadeDelay]="0.18" [fadeY]="30">
+            <div class="compose-layer back" aria-hidden="true"></div>
+            <div class="compose-layer mid" aria-hidden="true"></div>
 
-                <div class="info-item">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </div>
+            <form
+                class="compose-card"
+                (ngSubmit)="onSubmit()"
+                #contactForm="ngForm"
+                novalidate
+                appTilt3d
+                [tiltMax]="5"
+                [tiltScale]="1.01"
+            >
+                <div class="compose-top">
                     <div>
-                        <h4>Email</h4>
-                        <a [href]="'mailto:' + profile().email">{{ profile().email }}</a>
+                        <h3>Send a message</h3>
+                        <p>I usually reply within 24 hours.</p>
                     </div>
+                    <span class="status-pill"><i></i> Open for work</span>
                 </div>
 
-                <div class="info-item">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                            </path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4>Phone</h4>
-                        <a [href]="'tel:' + profile().phone">{{ profile().phone }}</a>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4>Location</h4>
-                        <p>{{ profile().location }}</p>
-                    </div>
-                </div>
-
-                <!-- <div class="social-links">
-                    <h4>Follow Me</h4>
-                    <div class="social-icons">
-                        <a *ngFor="let link of socialLinks()" [href]="link.url" target="_blank"
-                            rel="noopener noreferrer" class="social-icon glass">
-                            <span>{{ link.platform.charAt(0) }}</span>
-                        </a>
-                    </div>
-                </div> -->
-            </div>
-
-            <div class="contact-form-wrapper scroll-animate-right" appScrollAnimation>
-                <form class="contact-form glass" (ngSubmit)="onSubmit()" #contactForm="ngForm">
-                    <div class="form-group">
+                <div class="fields">
+                    <div class="form-group" [class.invalid]="nameTouched && !formData.name.trim()" [class.valid]="formData.name.trim().length > 1">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" [(ngModel)]="formData.name" required
-                            placeholder="Your name">
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            [(ngModel)]="formData.name"
+                            (blur)="nameTouched = true"
+                            required
+                            placeholder="Your name"
+                            autocomplete="name"
+                        />
+                        <span class="field-msg" *ngIf="nameTouched && !formData.name.trim()">Please enter your name</span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" [class.invalid]="emailTouched && !isEmailValid()" [class.valid]="isEmailValid()">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
-                            placeholder="your.email@example.com">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            [(ngModel)]="formData.email"
+                            (blur)="emailTouched = true"
+                            required
+                            email
+                            placeholder="your.email@example.com"
+                            autocomplete="email"
+                        />
+                        <span class="field-msg" *ngIf="emailTouched && !isEmailValid()">Enter a valid email address</span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group full" [class.invalid]="messageTouched && !formData.message.trim()" [class.valid]="formData.message.trim().length > 5">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="5"
-                            placeholder="Your message..."></textarea>
+                        <textarea
+                            id="message"
+                            name="message"
+                            [(ngModel)]="formData.message"
+                            (blur)="messageTouched = true"
+                            required
+                            rows="5"
+                            placeholder="Tell me about your project, timeline, and goals..."
+                        ></textarea>
+                        <span class="field-msg" *ngIf="messageTouched && !formData.message.trim()">Please write a message</span>
                     </div>
+                </div>
 
-                    <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid || isSubmitting">
-                        <span *ngIf="!isSubmitting">Send Message</span>
-                        <span *ngIf="isSubmitting">Sending...</span>
-                    </button>
+                <button type="submit" class="pill-btn submit-btn" [disabled]="!isFormValid() || isSubmitting">
+                    <span *ngIf="!isSubmitting && !submitSuccess">Send Message</span>
+                    <span *ngIf="isSubmitting" class="btn-state">
+                        <span class="spinner" aria-hidden="true"></span>
+                        Sending...
+                    </span>
+                    <span *ngIf="!isSubmitting && submitSuccess" class="btn-state">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        Sent!
+                    </span>
+                </button>
 
-                    <div *ngIf="submitSuccess" class="success-message">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        Message sent successfully!
-                    </div>
-
-                    <div *ngIf="submitError" class="error-message">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="12" y1="8" x2="12" y2="12"></line>
-                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                        </svg>
-                        {{ errorMessage }}
-                    </div>
-                </form>
-            </div>
+                <div *ngIf="submitError" class="error-banner" role="alert">{{ errorMessage }}</div>
+            </form>
         </div>
     </div>
 </section>

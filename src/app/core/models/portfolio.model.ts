@@ -25,13 +25,23 @@ export interface Experience {
     achievements: string[];
 }
 
+export interface ProjectGallery {
+    leftTop: string;
+    leftBottom: string;
+    right: string;
+}
+
 export interface Project {
     title: string;
     description: string;
     technologies: string[];
     features?: string[];
     image?: string;
+    /** Optional flat image list (leftTop, leftBottom, right). Prefer gallery when both exist. */
+    images?: string[];
     url?: string;
+    category?: string;
+    gallery?: ProjectGallery;
 }
 
 export interface Education {
@@ -39,6 +49,7 @@ export interface Education {
     institution: string;
     period: string;
     description: string;
+    type?: 'degree' | 'diploma' | 'internship';
 }
 
 export interface SocialLink {

@@ -1,94 +1,102 @@
-<section class="skills-showcase">
-    <div class="showcase-container">
-        <div class="section-header">
-            <h2 class="gradient-text">Tech Stack</h2>
-            <p class="section-subtitle">Technologies & Tools I Master</p>
-        </div>
+<section id="tech-stack" class="toolkit">
+    <!-- Quiet atmosphere — depth without noise -->
+    <div class="toolkit-atmosphere" aria-hidden="true">
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+        <div class="grain"></div>
+    </div>
 
-        <!-- First Row - Scrolling Left to Right -->
-        <div class="scroll-wrapper">
-            <!-- Left fade gradient -->
-            <div class="fade-gradient fade-left"></div>
+    <!-- Two décor pieces only — balanced, not a prop closet -->
+    <img
+        class="decor decor-left"
+        [src]="decor.moon"
+        alt=""
+        width="160"
+        height="160"
+        loading="lazy"
+        appFadeIn
+        [fadeDelay]="0.1"
+        [fadeX]="-40"
+        [fadeY]="0"
+    />
+    <img
+        class="decor decor-right"
+        [src]="decor.lego"
+        alt=""
+        width="160"
+        height="160"
+        loading="lazy"
+        appFadeIn
+        [fadeDelay]="0.15"
+        [fadeX]="40"
+        [fadeY]="0"
+    />
 
-            <!-- Scrolling content - Row 1 -->
-            <div class="scroll-content scroll-left">
-                <div class="skill-strip">
-                    <div *ngFor="let skill of firstRowSkills" class="skill-badge glass">
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
-                        <span class="skill-name">{{ skill.name }}</span>
-                        <div class="skill-glow"></div>
-                    </div>
-                </div>
+    <div class="toolkit-shell">
+        <!--
+          First read: one composition.
+          Title carries weight. One supporting sentence. Nothing else.
+        -->
+        <header class="toolkit-header" appFadeIn [fadeY]="28">
+            <p class="eyebrow">Toolkit</p>
+            <h2 class="display-heading toolkit-title">Tech Stack</h2>
+            <p class="toolkit-lead">
+                What I reach for when the brief is open — not every tool I have ever touched,
+                the ones that earn a place on the desk.
+            </p>
+        </header>
 
-                <!-- Duplicate for seamless loop -->
-                <div class="skill-strip" aria-hidden="true">
-                    <div *ngFor="let skill of firstRowSkills" class="skill-badge glass">
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
-                        <span class="skill-name">{{ skill.name }}</span>
-                        <div class="skill-glow"></div>
-                    </div>
-                </div>
+        <!--
+          Daily drivers: scannable in one glance.
+          Large type, not cards. Hierarchy over decoration.
+        -->
+        <div class="daily" appFadeIn [fadeDelay]="0.08" [fadeY]="24" *ngIf="dailyDrivers.length">
+            <div class="daily-label">
+                <span>Daily drivers</span>
+                <span class="daily-rule" aria-hidden="true"></span>
             </div>
 
-            <!-- Right fade gradient -->
-            <div class="fade-gradient fade-right"></div>
+            <ul class="daily-list" role="list">
+                <li *ngFor="let skill of dailyDrivers; let i = index; trackBy: trackByName" class="daily-item">
+                    <span class="daily-index">0{{ i + 1 }}</span>
+                    <span class="daily-name">{{ skill.name }}</span>
+                    <span class="daily-meter" aria-hidden="true">
+                        <span class="daily-meter-fill" [appAnimateBar]="skill.level"></span>
+                    </span>
+                    <span class="daily-level">{{ skill.level }}%</span>
+                </li>
+            </ul>
         </div>
 
-        <!-- Second Row - Scrolling Right to Left -->
-        <div class="scroll-wrapper">
-            <!-- Left fade gradient -->
-            <div class="fade-gradient fade-left"></div>
-
-            <!-- Scrolling content - Row 2 -->
-            <div class="scroll-content scroll-right">
-                <div class="skill-strip">
-                    <div *ngFor="let skill of secondRowSkills" class="skill-badge glass">
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </div>
-                        <span class="skill-name">{{ skill.name }}</span>
-                        <div class="skill-glow"></div>
+        <!--
+          Full toolkit: three disciplines.
+          Same row pattern everywhere → pattern recognition, less cognitive load.
+        -->
+        <div class="disciplines" appFadeIn [fadeDelay]="0.14" [fadeY]="28">
+            <article
+                class="discipline"
+                *ngFor="let col of columns; trackBy: trackByColumn"
+            >
+                <header class="discipline-head">
+                    <span class="discipline-index">{{ col.index }}</span>
+                    <div>
+                        <h3 class="discipline-label">{{ col.label }}</h3>
+                        <p class="discipline-intent">{{ col.intent }}</p>
                     </div>
-                </div>
+                </header>
 
-                <!-- Duplicate for seamless loop -->
-                <div class="skill-strip" aria-hidden="true">
-                    <div *ngFor="let skill of secondRowSkills" class="skill-badge glass">
-                        <div class="skill-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
+                <ul class="skill-index" role="list">
+                    <li *ngFor="let skill of col.skills; trackBy: trackByName">
+                        <div class="skill-row">
+                            <span class="skill-name">{{ skill.name }}</span>
+                            <span class="skill-line" aria-hidden="true">
+                                <span class="skill-line-fill" [appAnimateBar]="skill.level"></span>
+                            </span>
+                            <span class="skill-level">{{ skill.level }}%</span>
                         </div>
-                        <span class="skill-name">{{ skill.name }}</span>
-                        <div class="skill-glow"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right fade gradient -->
-            <div class="fade-gradient fade-right"></div>
+                    </li>
+                </ul>
+            </article>
         </div>
     </div>
 </section>

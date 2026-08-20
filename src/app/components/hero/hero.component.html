@@ -1,74 +1,183 @@
-<section class="hero">
-  <!-- Three.js Background -->
-  <div #threeContainer class="three-container"></div>
-
-  <!-- Sun/Moon Background -->
-  
-
-  <!-- Hero Content -->
-  <div class="hero-content">
-    <div class="container">
-      <div class="hero-glass-container">
-        <div class="hero-inner">
-          <!-- Greeting -->
-          <div class="greeting animate-fadeInUp justify-content-center">
-            <span class="wave">👋</span>
-            <span>Hello, I'm</span>
-          </div>
-
-          <!-- Name -->
-          <h1 class="name gradient-text">
-            <span *ngFor="let char of nameChars; let i = index; trackBy: trackByIndex" class="char"
-              [style.animation-delay]="(i * 0.1) + 's'">
-              {{ char === ' ' ? '\u00A0' : char }}
-            </span>
-          </h1>
-
-          <!-- Role -->
-          <h2 class="role animate-fadeInUp stagger-2">
-            {{ profile().role }}
-          </h2>
-
-          <!-- Tagline -->
-          <p class="tagline animate-fadeInUp stagger-3">
-            {{ profile().tagline }}
-          </p>
-
-          <!-- CTA Buttons -->
-          <div class="cta-buttons animate-fadeInUp stagger-4">
-            <button class="btn btn-primary" (click)="scrollToProjects()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-              View Projects
-            </button>
-
-            <button class="btn btn-secondary" (click)="scrollToContact()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              Contact Me
-            </button>
-          </div>
-
-          <!-- Social Links -->
-          <div class="hero-social animate-fadeInUp stagger-5">
-            <app-social-links></app-social-links>
-          </div>
-
-          <!-- Scroll Indicator -->
-          <div class="scroll-indicator animate-bounce">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
-          </div>
-        </div>
-      </div>
+<section id="home" class="hero relative flex min-h-screen flex-col justify-between overflow-hidden bg-[var(--bg-dark)]">
+    <!-- Atmospheric Background Effects -->
+    <div class="hero-bg-fx pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <!-- Grid Pattern Overlay -->
+        <div class="hero-grid-pattern absolute inset-0"></div>
+        <!-- Ambient Glow Nodes -->
+        <div class="hero-glow-1 absolute -top-24 -right-24 h-[500px] w-[500px] rounded-full blur-[120px]"></div>
+        <div class="hero-glow-2 absolute top-1/3 -left-32 h-[420px] w-[420px] rounded-full blur-[130px]"></div>
+        <div class="hero-glow-3 absolute -bottom-20 right-1/4 h-[350px] w-[350px] rounded-full blur-[100px]"></div>
     </div>
-  </div>
+
+    <!-- Navigation Bar -->
+    <header
+        class="relative z-30 flex w-full max-w-[1400px] mx-auto items-center justify-between px-5 pt-6 sm:px-8 md:px-10 md:pt-8"
+        appFadeIn
+        [fadeDelay]="0"
+        [fadeY]="-20"
+    >
+        <!-- Brand / Monogram -->
+        <a href="#home" class="brand-monogram group flex items-center gap-3">
+            <span class="brand-badge flex h-9 w-9 items-center justify-center rounded-xl font-black text-sm text-white shadow-lg transition-transform duration-300 group-hover:scale-105">
+                AP
+            </span>
+            <span class="hidden sm:inline-block text-xs font-semibold tracking-widest uppercase text-[var(--text-muted)] group-hover:text-white transition-colors duration-200">
+                Ankush Pathania
+            </span>
+        </a>
+
+        <!-- Nav Items -->
+        <nav class="nav-island flex items-center gap-1 sm:gap-2 px-3 py-1.5 sm:px-5 sm:py-2 rounded-full">
+            <a
+                *ngFor="let item of navItems"
+                [href]="item.href"
+                class="nav-link px-2.5 py-1 text-xs font-medium uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-200 sm:text-sm"
+            >
+                {{ item.label }}
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Hero Body Grid -->
+    <div class="relative z-20 mx-auto flex w-full max-w-[1400px] flex-1 flex-col items-center justify-center gap-10 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between md:gap-8 md:px-10 lg:py-12">
+        
+        <!-- Left Content Column -->
+        <div class="relative z-20 w-full min-w-0 md:w-[54%] lg:w-[56%]" appFadeIn [fadeDelay]="0.15" [fadeY]="30">
+            
+            <!-- Availability Pill -->
+            <div class="inline-flex items-center gap-2.5 rounded-full hero-status-pill px-3.5 py-1.5 text-xs font-medium uppercase tracking-widest text-[var(--text-primary)] mb-5 sm:mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                </span>
+                <span>Available for Projects</span>
+                <span class="status-divider text-white/20">&bull;</span>
+                <span class="text-white/60 font-mono text-[11px]">2026</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="hero-heading display-heading max-w-full font-black uppercase leading-[0.92] tracking-tight">
+                Hi, i&apos;m<br class="sm:hidden" />
+                <span class="whitespace-nowrap gradient-name">ankush</span>
+            </h1>
+
+            <!-- Subtitle / Value Proposition -->
+            <p
+                class="mt-5 max-w-[34ch] text-sm font-light uppercase leading-relaxed tracking-wider text-[var(--text-primary)] sm:mt-6 sm:max-w-[42ch] sm:text-base md:text-lg"
+                appFadeIn
+                [fadeDelay]="0.3"
+                [fadeY]="20"
+            >
+                Web designer &amp; frontend developer driven by crafting striking, high-performance, and unforgettable digital experiences.
+            </p>
+
+            <!-- Dual Action CTAs -->
+            <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-9" appFadeIn [fadeDelay]="0.45" [fadeY]="20">
+                <app-contact-button label="Let's Talk" href="#contact"></app-contact-button>
+                
+                <a
+                    href="#projects"
+                    class="btn-secondary-glass group inline-flex items-center gap-2.5 rounded-full px-7 py-3 text-xs sm:px-8 sm:py-3.5 sm:text-sm font-medium uppercase tracking-wider text-[var(--text-primary)] transition-all duration-300"
+                >
+                    <span>View Projects</span>
+                    <svg class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Quick Stats Strip -->
+            <div class="hero-stats-grid mt-8 pt-7 border-t border-white/10 grid grid-cols-3 gap-3 sm:gap-6 max-w-[480px]" appFadeIn [fadeDelay]="0.6" [fadeY]="20">
+                <div *ngFor="let stat of stats" class="stat-card">
+                    <div class="stat-value font-black text-xl sm:text-2xl lg:text-3xl text-white">{{ stat.value }}</div>
+                    <div class="stat-label text-[10px] sm:text-xs font-medium uppercase tracking-wider text-[var(--text-muted)] mt-0.5">{{ stat.label }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right 3D Character Stage Column -->
+        <div
+            class="hero-stage-column relative z-10 flex w-full max-w-[360px] flex-shrink-0 items-center justify-center sm:max-w-[420px] md:w-[44%] md:max-w-none lg:w-[42%]"
+            appFadeIn
+            [fadeDelay]="0.5"
+            [fadeY]="30"
+        >
+            <!-- 3D Tilt Card Wrapper -->
+            <div
+                class="hero-3d-stage relative w-full flex items-center justify-center"
+                appTilt3d
+                [tiltMax]="8"
+                [tiltScale]="1.02"
+            >
+                <!-- Stage Backdrop Glow & Portal -->
+                <div class="stage-backdrop-portal absolute inset-0 rounded-[32px] overflow-hidden pointer-events-none">
+                    <div class="stage-radial-light absolute inset-0"></div>
+                    <div class="stage-border-glow absolute inset-0 rounded-[32px]"></div>
+                </div>
+
+                <!-- Floating Orbit Chip: Top-Right (Experience) -->
+                <div class="floating-chip chip-top-right absolute -top-3 -right-2 sm:-top-4 sm:-right-4 z-20 flex items-center gap-2.5 rounded-2xl px-3.5 py-2.5 backdrop-blur-xl shadow-2xl">
+                    <span class="chip-icon-box flex h-7 w-7 items-center justify-center rounded-xl text-xs bg-violet-500/20 text-violet-300">
+                        ⚡
+                    </span>
+                    <div class="text-left">
+                        <div class="text-[11px] font-bold text-white leading-tight">5+ Years</div>
+                        <div class="text-[9px] uppercase tracking-wider text-[var(--text-muted)]">Frontend Dev</div>
+                    </div>
+                </div>
+
+                <!-- Floating Orbit Chip: Bottom-Left (Figma & UI) -->
+                <div class="floating-chip chip-bottom-left absolute -bottom-3 -left-2 sm:-bottom-4 sm:-left-4 z-20 flex items-center gap-2.5 rounded-2xl px-3.5 py-2.5 backdrop-blur-xl shadow-2xl">
+                    <span class="chip-icon-box flex h-7 w-7 items-center justify-center rounded-xl text-xs bg-blue-500/20 text-blue-300">
+                        🎨
+                    </span>
+                    <div class="text-left">
+                        <div class="text-[11px] font-bold text-white leading-tight">Pixel-Perfect</div>
+                        <div class="text-[9px] uppercase tracking-wider text-[var(--text-muted)]">UI/UX & Code</div>
+                    </div>
+                </div>
+
+                <!-- Avatar Magnet Container -->
+                <div
+                    class="hero-portrait-magnet relative z-10 flex w-full items-center justify-center pt-4"
+                    appMagnet
+                    [magnetPadding]="60"
+                    [magnetStrength]="3"
+                    activeTransition="transform 0.3s ease-out"
+                    inactiveTransition="transform 0.6s ease-in-out"
+                >
+                    <img
+                        [src]="portraitUrl"
+                        [alt]="profile().name"
+                        width="520"
+                        height="640"
+                        class="hero-portrait-img mx-auto h-auto w-full max-w-[280px] select-none object-contain sm:max-w-[340px] md:max-w-[380px] lg:max-w-[440px]"
+                        draggable="false"
+                    />
+                </div>
+
+                <!-- Tech Stack Badges Strip at Stage Base -->
+                <div class="stage-tech-strip absolute -bottom-7 sm:-bottom-8 z-20 flex items-center justify-center gap-2 flex-wrap max-w-[90%]">
+                    <span *ngFor="let tech of techStack" class="tech-pill-badge text-[10px] sm:text-[11px] font-medium tracking-wider uppercase px-2.5 py-1 rounded-full text-white/80">
+                        {{ tech }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Scroll Indicator -->
+    <div
+        class="relative z-20 flex w-full items-center justify-center pb-4 pt-2"
+        appFadeIn
+        [fadeDelay]="0.8"
+        [fadeY]="10"
+    >
+        <a href="#about" class="scroll-indicator flex flex-col items-center gap-1 text-[var(--text-muted)] hover:text-white transition-colors duration-200">
+            <span class="text-[10px] font-semibold uppercase tracking-widest">Scroll</span>
+            <svg class="h-3.5 w-3.5 animate-bounce text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </a>
+    </div>
 </section>

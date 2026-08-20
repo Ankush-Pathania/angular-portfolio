@@ -1,82 +1,43 @@
-import { Component, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThreeService } from '../../core/services/three.service';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
-import { ThemeService } from '../../core/services/theme.service';
-import { SocialLinksComponent } from '../shared/social-links/social-links.component';
+import { ContactButtonComponent } from '../shared/contact-button/contact-button.component';
+import { MagnetDirective } from '../../core/directives/magnet.directive';
+import { FadeInDirective } from '../../core/directives/fade-in.directive';
+import { Tilt3dDirective } from '../../core/directives/tilt-3d.directive';
 
 @Component({
     selector: 'app-hero',
     standalone: true,
-    imports: [CommonModule, SocialLinksComponent],
+    imports: [
+        CommonModule,
+        ContactButtonComponent,
+        MagnetDirective,
+        FadeInDirective,
+        Tilt3dDirective
+    ],
     templateUrl: './hero.component.html',
     styleUrl: './hero.component.scss'
 })
-export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
-    @ViewChild('threeContainer', { static: false }) threeContainer!: ElementRef<HTMLDivElement>;
-
+export class HeroComponent {
     profile = this.portfolioData.profile;
-    nameChars: string[] = [];
-    threeJsLoaded = false;
-    isDarkMode = this.themeService.isDarkMode;
+    portraitUrl = 'assets/images/portrait.png';
 
-    constructor(
-        private threeService: ThreeService,
-        private portfolioData: PortfolioDataService,
-        private themeService: ThemeService
-    ) { }
+    navItems = [
+        { label: 'About', href: '#about' },
+        { label: 'Services', href: '#services' },
+        { label: 'Projects', href: '#projects' },
+        { label: 'Experience', href: '#experience' },
+        { label: 'Contact', href: '#contact' }
+    ];
 
-    ngOnInit(): void {
-        // Split name into characters for animation
-        this.nameChars = this.profile().name.split('');
-    }
+    stats = [
+        { value: '5+', label: 'Years Exp.' },
+        { value: '50+', label: 'Projects Built' },
+        { value: '100%', label: 'Satisfaction' }
+    ];
 
-    ngAfterViewInit(): void {
-        // Defer Three.js initialization to prevent blocking main thread
-        // Use requestIdleCallback for better performance
-        if ('requestIdleCallback' in window) {
-            (window as any).requestIdleCallback(() => this.initThreeJS(), { timeout: 2000 });
-        } else {
-            // Fallback for browsers without requestIdleCallback
-            setTimeout(() => this.initThreeJS(), 100);
-        }
-    }
+    techStack = ['Next.js', 'Angular', 'React', 'TypeScript', 'Figma'];
 
-    private initThreeJS(): void {
-        if (this.threeContainer && !this.threeJsLoaded) {
-            this.threeService.initScene(this.threeContainer.nativeElement);
-            this.threeService.addMouseInteraction();
-            this.threeJsLoaded = true;
-
-            // Add class to hero for fade-in effect
-            const heroElement = this.threeContainer.nativeElement.closest('.hero');
-            if (heroElement) {
-                heroElement.classList.add('three-loaded');
-            }
-        }
-    }
-
-    ngOnDestroy(): void {
-        // Clean up Three.js resources
-        this.threeService.dispose();
-    }
-
-    // TrackBy function for better ngFor performance
-    trackByIndex(index: number): number {
-        return index;
-    }
-
-    scrollToProjects(): void {
-        const projectsSection = document.getElementById('projects');
-        if (projectsSection) {
-            projectsSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    scrollToContact(): void {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
+    constructor(private portfolioData: PortfolioDataService) {}
 }

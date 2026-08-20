@@ -1,6 +1,3 @@
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
-
 // Import Tailwind
 @tailwind base;
 @tailwind components;
@@ -8,31 +5,90 @@
 
 // Import design system
 @import 'variables';
+@import 'tokens';
 @import 'animations';
 @import 'performance';
+
 
 // ========================================
 // GLOBAL STYLES
 // ========================================
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+app-root {
+    background: var(--bg-dark);
+    max-width: 100%;
+}
+
+html,
+body {
+    overflow-x: hidden;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
 body {
-    font-family: var(--font-primary);
+    font-family: var(--font-body);
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
-    color: var(--color-text-primary);
-    background-color: var(--color-bg-primary);
-    transition: background-color var(--transition-base), color var(--transition-base);
+    color: var(--text-primary);
+    background-color: var(--bg-dark);
+}
+
+.main-wrapper {
     overflow-x: hidden;
+    background: var(--bg-dark);
+    font-family: var(--font-body);
+    max-width: 100vw;
+}
+
+.section {
+    overflow-x: hidden;
+}
+
+.section .section-header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+
+    h2 {
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+        color: var(--text-muted);
+        font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 // ========================================
@@ -167,19 +223,19 @@ a {
 // ========================================
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-bg-secondary);
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-accent-primary);
-    border-radius: var(--border-radius-full);
+    background: rgba(215, 226, 234, 0.18);
+    border-radius: 999px;
 
     &:hover {
-        background: var(--color-accent-secondary);
+        background: rgba(215, 226, 234, 0.32);
     }
 }
 

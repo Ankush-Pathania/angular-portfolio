@@ -13,7 +13,7 @@ export class PortfolioDataService {
         email: 'apathania611@gmail.com',
         phone: '6286603909',
         location: 'TDI Green Enclave, Mohali, Punjab',
-        summary: 'Experienced Web Designer and Frontend Developer with 5+ years of expertise in creating responsive, user-friendly websites and applications. Skilled in React, Angular, HTML, CSS, SCSS, JavaScript, jQuery, and modern development tools. Proven track record of delivering 50+ successful projects with 100% client satisfaction. Strong communication skills and experience collaborating with cross-functional teams across different time zones.'
+        summary: 'Experienced Web Designer and Frontend Developer with 5+ years of expertise in creating responsive, user-friendly websites and applications. Skilled in React, Next.js, Angular, WordPress, Divi, Elementor, HTML, CSS, SCSS, JavaScript, jQuery, and Framer Motion for smooth, animated experiences. Comfortable with SiteGround hosting and modern development tools. Proven track record of delivering 50+ successful projects with 100% client satisfaction. Strong communication skills and experience collaborating with cross-functional teams across different time zones.'
     });
 
     // Skills organized by category
@@ -25,9 +25,11 @@ export class PortfolioDataService {
         { name: 'JavaScript', level: 40, category: 'frontend' },
         { name: 'jQuery', level: 40, category: 'frontend' },
         { name: 'React', level: 60, category: 'frontend' },
-        { name: 'Next Js', level: 60, category: 'frontend' },
+        { name: 'Next.js', level: 60, category: 'frontend' },
         { name: 'Angular', level: 40, category: 'frontend' },
-        { name: 'Wordpress', level: 70, category: 'frontend' },
+        { name: 'Framer Motion', level: 75, category: 'frontend' },
+        { name: 'WordPress', level: 70, category: 'frontend' },
+        { name: 'Divi', level: 70, category: 'frontend' },
         { name: 'Elementor', level: 70, category: 'frontend' },
         { name: 'Bootstrap', level: 88, category: 'tools' },
         { name: 'Shopify', level: 90, category: 'frontend' },
@@ -37,6 +39,7 @@ export class PortfolioDataService {
         { name: 'GitHub', level: 85, category: 'tools' },
         { name: 'GIMP', level: 75, category: 'tools' },
         { name: 'Photoshop', level: 50, category: 'tools' },
+        { name: 'SiteGround', level: 80, category: 'tools' },
         { name: 'ClickUp', level: 80, category: 'tools' },
 
         // Performance & SEO Tools
@@ -70,11 +73,25 @@ export class PortfolioDataService {
     // Professional Experience
     experience = signal<Experience[]>([
         {
+            company: 'Medclap',
+            role: 'Frontend Developer',
+            period: 'Feb 2026 - Present',
+            location: '',
+            description: 'Currently building modern frontend experiences at Medclap with Next.js — focusing on performant UI, reusable components, and polished product interfaces.',
+            technologies: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SCSS', 'GitHub'],
+            achievements: [
+                'Developing responsive Next.js interfaces for production product flows',
+                'Building reusable frontend components with clean, scalable patterns',
+                'Collaborating on UI implementation with a focus on performance and usability',
+                'Shipping polished interactions and layout systems for modern web apps'
+            ]
+        },
+        {
             company: 'Meander Software - WONDRFLY',
             role: 'Web Designer / UI Developer',
-            period: '2023 - Present',
+            period: '2023 - Feb 2026',
             location: '',
-            description: 'Working on WONDRFLY platform (www.wondrfly.com), a comprehensive kids\' activities platform connecting parents with local providers.',
+            description: 'Worked on WONDRFLY platform (www.wondrfly.com), a comprehensive kids\' activities platform connecting parents with local providers.',
             technologies: ['Angular', 'HTML', 'CSS', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
             achievements: [
                 'Improved website performance by 40% through optimization techniques',
@@ -121,6 +138,12 @@ export class PortfolioDataService {
             description: 'Comprehensive kids\' activities platform connecting parents with local providers. Features advanced search, filtering, and booking capabilities with a focus on user experience and performance.',
             technologies: ['Angular', 'CSS', 'SCSS', 'Bootstrap', 'GitHub', 'Figma'],
             url: 'https://www.wondrfly.com',
+            category: 'Client',
+            gallery: {
+                leftTop: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85',
+                leftBottom: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85',
+                right: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85'
+            },
             features: [
                 'Advanced search and filtering system',
                 'Responsive design for all devices',
@@ -134,6 +157,12 @@ export class PortfolioDataService {
             description: 'Professional corporate website for Meander Software, a leading app development company. Features modern design, service showcases, and client portfolio displays.',
             technologies: ['Vue.js', 'HTML', 'CSS', 'JavaScript', 'Google Analytics'],
             url: 'https://meander.software',
+            category: 'Client',
+            gallery: {
+                leftTop: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85',
+                leftBottom: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85',
+                right: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85'
+            },
             features: [
                 'Modern, professional UI/UX design',
                 'Interactive service demonstrations',
@@ -146,7 +175,13 @@ export class PortfolioDataService {
             title: 'CRM Dashboard (HTML + BOOTSTRAP)',
             description: 'This project is a responsive admin dashboard interface built entirely using HTML and Bootstrap, focusing on clean layout structure, usability, and modern UI patterns.',
             technologies: ['HTML','Bootstrap'],
-           url: 'https://assignment-rudra.netlify.app/',
+            url: 'https://assignment-rudra.netlify.app/',
+            category: 'Personal',
+            gallery: {
+                leftTop: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85',
+                leftBottom: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85',
+                right: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85'
+            },
             features: [
                  'Sidebar navigation with structured dashboard layout',
     'Analytics cards displaying key business metrics',
@@ -227,13 +262,22 @@ export class PortfolioDataService {
             degree: 'Bachelor of Arts',
             institution: 'Guru Nanak Dev University, Amritsar',
             period: '2017 - 2020',
+            type: 'degree',
             description: 'Completed undergraduate studies with focus on liberal arts and general education. Developed strong analytical and communication skills essential for client interactions.'
         },
         {
             degree: 'Computer Science Diploma',
             institution: 'BSF IT Bangalore',
             period: '2012 - 2015',
+            type: 'diploma',
             description: 'Specialized in computer science and information technology. Gained fundamental knowledge in programming, web development, and computer systems.'
+        },
+        {
+            degree: 'Web Development Internship Training',
+            institution: 'Tech Mahindra',
+            period: '6 Months',
+            type: 'internship',
+            description: 'Completed a 6-month intensive internship training program focused on web development fundamentals, industry practices, and building production-ready frontend skills.'
         }
     ]);
 

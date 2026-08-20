@@ -1,81 +1,76 @@
-<section id="about" class="about section">
-    <div class="container">
-        <div class="section-header scroll-animate" appScrollAnimation>
-            <h2 class="gradient-text">About Me</h2>
-            <p class="section-subtitle">Get to know me better</p>
+<section
+    id="about"
+    class="relative flex min-h-screen items-center justify-center overflow-x-hidden bg-[var(--bg-dark)] px-5 py-20 sm:px-8 md:px-10"
+>
+    <img
+        [src]="decor.moon"
+        alt=""
+        class="pointer-events-none absolute left-[1%] top-[4%] z-0 w-[120px] select-none sm:left-[2%] sm:w-[160px] md:left-[4%] md:w-[210px]"
+        appFadeIn
+        [fadeDelay]="0.1"
+        [fadeX]="-80"
+        [fadeY]="0"
+        [fadeDuration]="0.9"
+    />
+    <img
+        [src]="decor.object"
+        alt=""
+        class="pointer-events-none absolute bottom-[8%] left-[3%] z-0 w-[100px] select-none sm:left-[6%] sm:w-[140px] md:left-[10%] md:w-[180px]"
+        appFadeIn
+        [fadeDelay]="0.25"
+        [fadeX]="-80"
+        [fadeY]="0"
+        [fadeDuration]="0.9"
+    />
+    <img
+        [src]="decor.lego"
+        alt=""
+        class="pointer-events-none absolute right-[1%] top-[4%] z-0 w-[120px] select-none sm:right-[2%] sm:w-[160px] md:right-[4%] md:w-[210px]"
+        appFadeIn
+        [fadeDelay]="0.15"
+        [fadeX]="80"
+        [fadeY]="0"
+        [fadeDuration]="0.9"
+    />
+    <img
+        [src]="decor.group"
+        alt=""
+        class="pointer-events-none absolute bottom-[8%] right-[3%] z-0 w-[130px] select-none sm:right-[6%] sm:w-[170px] md:right-[10%] md:w-[220px]"
+        appFadeIn
+        [fadeDelay]="0.3"
+        [fadeX]="80"
+        [fadeY]="0"
+        [fadeDuration]="0.9"
+    />
+
+    <div class="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">
+        <div class="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
+            <h2
+                class="display-heading px-2 text-center"
+                style="font-size: clamp(2.75rem, 10vw, 140px)"
+                appFadeIn
+                [fadeDelay]="0"
+                [fadeY]="40"
+            >
+                About me
+            </h2>
+
+            <p
+                #animatedParagraph
+                class="relative mx-auto max-w-[65ch] px-1 text-center font-medium leading-relaxed text-[var(--text-primary)]"
+                style="font-size: clamp(1rem, 2vw, 1.35rem)"
+            >
+                <span
+                    *ngFor="let char of chars; let i = index; trackBy: trackByIndex"
+                    class="transition-opacity duration-150"
+                    [style.opacity]="charOpacities[i]"
+                    >{{ char }}</span
+                >
+            </p>
         </div>
 
-        <div class="about-content">
-            <div class="about-text scroll-animate-left" appScrollAnimation>
-                <p class="summary">{{ profile().summary }}</p>
-
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>5+ Years Experience</h4>
-                            <p>Professional web development across multiple companies</p>
-                        </div>
-                    </div>
-
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>50+ Projects Delivered</h4>
-                            <p>100% client satisfaction rate</p>
-                        </div>
-                    </div>
-
-                    <div class="highlight-item">
-                        <div class="highlight-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>International Collaboration</h4>
-                            <p>Cross-functional teams across time zones</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-visual scroll-animate-right" appScrollAnimation>
-                <div class="visual-card glass">
-                    <div class="code-snippet">
-                        <div class="code-line"><span class="keyword">const</span> &nbsp; <span
-                                class="variable">developer</span> = &#123;</div>
-                        <div class="code-line indent">name: <span class="string">'{{ profile().name }}'</span>,</div>
-                        <div class="code-line indent">role: <span class="string">'{{ profile().role }}'</span>,</div>
-                        <div class="code-line indent">location: <span class="string">'{{ profile().location }}'</span>,
-                        </div>
-                        <div class="code-line indent">skills: [<span class="string">'React'</span>, <span
-                                class="string">'Angular'</span>, <span class="string">'TypeScript'</span>],</div>
-                        <div class="code-line indent">passion: <span class="string">'Building amazing web
-                                experiences'</span></div>
-                        <div class="code-line">&#125;;</div>
-                    </div>
-                </div>
-            </div>
+        <div class="mt-16 sm:mt-20 md:mt-24" appFadeIn [fadeDelay]="0.4" [fadeY]="20">
+            <app-contact-button></app-contact-button>
         </div>
     </div>
 </section>
